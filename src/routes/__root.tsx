@@ -77,7 +77,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Coulisses 2 Ton Succès — Opérations & automatisation pour entrepreneurs" },
+      { title: "Jet Assiste" },
       {
         name: "description",
         content:
@@ -85,13 +85,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Coulisses 2 Ton Succès" },
-      { property: "og:title", content: "Coulisses 2 Ton Succès — Opérations & automatisation" },
+      { property: "og:title", content: "Jet Assiste" },
       {
         property: "og:description",
         content:
           "Audit gratuit et personnalisé pour identifier les tâches qui vous font perdre du temps chaque semaine.",
       },
       { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "Jet Assiste" },
+      { name: "description", content: "Landing page for AI and automation consultant to generate leads and book discovery calls." },
+      { property: "og:description", content: "Landing page for AI and automation consultant to generate leads and book discovery calls." },
+      { name: "twitter:description", content: "Landing page for AI and automation consultant to generate leads and book discovery calls." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/5093888b-3353-4d7b-97ba-0e345c105831/id-preview-ca0d1491--1a812ddc-7a45-42bc-b55c-c0c8ac99e243.lovable.app-1781687300907.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/5093888b-3353-4d7b-97ba-0e345c105831/id-preview-ca0d1491--1a812ddc-7a45-42bc-b55c-c0c8ac99e243.lovable.app-1781687300907.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
