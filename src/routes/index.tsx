@@ -1,21 +1,23 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Studio Opéra — Libérez des heures chaque semaine grâce à l'automatisation" },
+      { title: "Coulisses 2 Ton Succès — Libérez des heures chaque semaine grâce à l'automatisation" },
       {
         name: "description",
         content:
-          "Consultante en opérations IA et automatisation. Audit gratuit pour coachs, consultants et entrepreneurs de services qui veulent simplifier leur gestion.",
+          "Consultante en opérations IA et automatisation. Audit gratuit pour coachs, consultants, formateurs et entrepreneurs de services qui veulent simplifier leur gestion.",
       },
-      { property: "og:title", content: "Studio Opéra — Opérations & automatisation" },
+      { property: "og:title", content: "Coulisses 2 Ton Succès — Opérations & automatisation" },
+      { property: "og:url", content: "/" },
       {
         property: "og:description",
         content:
           "Transformez votre activité en système. Audit personnalisé, sans engagement.",
       },
     ],
+    links: [{ rel: "canonical", href: "/" }],
   }),
   component: LandingPage,
 });
@@ -108,19 +110,19 @@ function LandingPage() {
       <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
           <span className="font-display italic text-xl font-semibold tracking-tight">
-            Studio Opéra.
+            Coulisses 2 Ton Succès.
           </span>
           <div className="hidden md:flex gap-8 text-xs font-medium uppercase tracking-widest text-muted">
             <a href="#solution" className="hover:text-foreground transition-colors">Services</a>
             <a href="#process" className="hover:text-foreground transition-colors">Processus</a>
             <a href="#faq" className="hover:text-foreground transition-colors">FAQ</a>
           </div>
-          <a
-            href="#audit"
+          <Link
+            to="/audit"
             className="text-[11px] font-semibold uppercase tracking-widest px-4 py-2 ring-1 ring-foreground/10 rounded-full hover:bg-foreground hover:text-background transition-all"
           >
             Audit gratuit
-          </a>
+          </Link>
         </div>
       </nav>
 
@@ -141,12 +143,12 @@ function LandingPage() {
         </p>
 
         <div className="flex flex-col items-center gap-8 animate-reveal [animation-delay:300ms]">
-          <a
-            href="#audit"
-            className="w-full sm:w-auto px-8 py-4 bg-foreground text-background font-medium rounded-full hover:opacity-90 transition-opacity active:scale-[0.98]"
+          <Link
+            to="/audit"
+            className="w-full sm:w-auto px-8 py-4 bg-foreground text-background font-medium rounded-full hover:opacity-90 transition-opacity active:scale-[0.98] text-center"
           >
-            Obtenir un audit gratuit
-          </a>
+            Obtenir mon audit gratuit
+          </Link>
 
           <ul className="grid grid-cols-2 gap-x-8 gap-y-2 text-left">
             {reassurances.map((r) => (
@@ -288,14 +290,14 @@ function LandingPage() {
             Découvrez ce qui peut être automatisé dans votre activité.
           </h2>
           <p className="text-muted text-lg mb-10 text-pretty">
-            Recevez un audit personnalisé et identifiez les tâches qui vous font perdre du temps chaque semaine.
+            Recevez une analyse personnalisée et identifiez les tâches qui vous font perdre du temps chaque semaine.
           </p>
-          <a
-            href="mailto:contact@studio-opera.fr?subject=Demande%20d'audit%20gratuit"
+          <Link
+            to="/audit"
             className="inline-block px-8 py-4 bg-accent text-accent-foreground font-medium rounded-full shadow-xl shadow-accent/10 hover:opacity-95 transition-opacity"
           >
-            Demander mon audit gratuit
-          </a>
+            Recevoir mon analyse personnalisée
+          </Link>
           <p className="mt-6 text-xs text-muted">Réponse sous 48h ouvrées · 100% confidentiel</p>
         </div>
       </section>
@@ -332,7 +334,7 @@ function LandingPage() {
         <div className="max-w-2xl mx-auto flex flex-col md:flex-row justify-between gap-8 md:items-end">
           <div>
             <p className="text-background mb-3 font-display italic text-2xl tracking-normal">
-              Studio Opéra.
+              Coulisses 2 Ton Succès.
             </p>
             <p className="leading-relaxed max-w-sm">
               Consultante en opérations IA et automatisation pour entrepreneurs, coachs et consultants.
@@ -340,18 +342,18 @@ function LandingPage() {
           </div>
           <div className="flex flex-col gap-3 md:items-end">
             <div className="flex gap-6 uppercase tracking-widest text-[10px]">
-              <a href="#audit" className="hover:text-background transition-colors">
+              <Link to="/audit" className="hover:text-background transition-colors">
                 Audit
-              </a>
+              </Link>
               <a
-                href="mailto:contact@studio-opera.fr"
+                href="mailto:contact@coulisses2tonsucces.com"
                 className="hover:text-background transition-colors"
               >
                 Contact
               </a>
             </div>
             <p className="text-[10px] uppercase tracking-widest">
-              © {new Date().getFullYear()} Studio Opéra
+              © {new Date().getFullYear()} Coulisses 2 Ton Succès
             </p>
           </div>
         </div>

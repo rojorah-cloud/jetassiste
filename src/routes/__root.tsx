@@ -77,14 +77,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Studio Opéra — Opérations & automatisation pour coachs et consultants" },
+      { title: "Coulisses 2 Ton Succès — Opérations & automatisation pour entrepreneurs" },
       {
         name: "description",
         content:
-          "Consultante en opérations et automatisation. J'aide coachs, consultants et entrepreneurs à libérer plusieurs heures par semaine grâce à des systèmes intelligents.",
+          "Consultante en opérations et automatisation. J'aide coachs, consultants, formateurs et entrepreneurs à libérer plusieurs heures par semaine grâce à des systèmes intelligents.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:title", content: "Studio Opéra — Opérations & automatisation" },
+      { property: "og:site_name", content: "Coulisses 2 Ton Succès" },
+      { property: "og:title", content: "Coulisses 2 Ton Succès — Opérations & automatisation" },
       {
         property: "og:description",
         content:
