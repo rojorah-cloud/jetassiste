@@ -1,21 +1,23 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Studio Opéra — Libérez des heures chaque semaine grâce à l'automatisation" },
+      { title: "Coulisses 2 Ton Succès — Libérez des heures chaque semaine grâce à l'automatisation" },
       {
         name: "description",
         content:
-          "Consultante en opérations IA et automatisation. Audit gratuit pour coachs, consultants et entrepreneurs de services qui veulent simplifier leur gestion.",
+          "Consultante en opérations IA et automatisation. Audit gratuit pour coachs, consultants, formateurs et entrepreneurs de services qui veulent simplifier leur gestion.",
       },
-      { property: "og:title", content: "Studio Opéra — Opérations & automatisation" },
+      { property: "og:title", content: "Coulisses 2 Ton Succès — Opérations & automatisation" },
+      { property: "og:url", content: "/" },
       {
         property: "og:description",
         content:
           "Transformez votre activité en système. Audit personnalisé, sans engagement.",
       },
     ],
+    links: [{ rel: "canonical", href: "/" }],
   }),
   component: LandingPage,
 });
