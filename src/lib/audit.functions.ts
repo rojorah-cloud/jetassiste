@@ -24,7 +24,7 @@ const auditSchema = z.object({
 export type AuditInput = z.infer<typeof auditSchema>;
 
 const RECIPIENT = "contact@coulisses2tonsucces.com";
-const FROM = "Coulisses 2 Ton Succès <onboarding@resend.dev>";
+const FROM = "Coulisses 2 Ton Succès <contact@coulisses2tonsucces.com>";
 const GATEWAY_URL = "https://connector-gateway.lovable.dev/resend";
 
 function esc(s: string) {
