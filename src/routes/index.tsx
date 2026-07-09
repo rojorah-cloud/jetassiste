@@ -4,13 +4,13 @@ import { LatestPosts } from "@/components/LatestPosts";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Coulisses 2 Ton Succès — Libérez des heures chaque semaine grâce à l'automatisation" },
+      { title: "Jetassiste — Libérez des heures chaque semaine grâce à l'automatisation" },
       {
         name: "description",
         content:
           "Consultante en opérations IA et automatisation. Audit gratuit pour coachs, consultants, formateurs et entrepreneurs de services qui veulent simplifier leur gestion.",
       },
-      { property: "og:title", content: "Coulisses 2 Ton Succès — Opérations & automatisation" },
+      { property: "og:title", content: "Jetassiste — Opérations & automatisation" },
       { property: "og:url", content: "/" },
       {
         property: "og:description",
@@ -111,7 +111,7 @@ function LandingPage() {
       <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
           <span className="font-display italic text-xl font-semibold tracking-tight">
-            Coulisses 2 Ton Succès.
+            Jetassiste.
           </span>
           <div className="hidden md:flex gap-8 text-xs font-medium uppercase tracking-widest text-muted">
             <a href="#solution" className="hover:text-foreground transition-colors">Services</a>
@@ -347,7 +347,7 @@ function LandingPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 pb-12 border-b border-background/10">
             <div className="md:col-span-2">
               <p className="text-background mb-3 font-display italic text-2xl tracking-normal">
-                Coulisses 2 Ton Succès.
+                Jetassiste.
               </p>
               <p className="leading-relaxed max-w-sm">
                 Consultante en opérations IA et automatisation pour entrepreneurs, coachs et consultants.
@@ -387,7 +387,7 @@ function LandingPage() {
             </div>
           </div>
           <p className="mt-8 text-[10px] uppercase tracking-widest text-center md:text-left">
-            © {new Date().getFullYear()} Coulisses 2 Ton Succès
+            © {new Date().getFullYear()} Jetassiste
           </p>
         </div>
       </footer>

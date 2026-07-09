@@ -84,7 +84,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Consultante en opérations et automatisation. J'aide coachs, consultants, formateurs et entrepreneurs à libérer plusieurs heures par semaine grâce à des systèmes intelligents.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:site_name", content: "Coulisses 2 Ton Succès" },
+      { property: "og:site_name", content: "Jetassiste" },
       { property: "og:title", content: "Jet Assiste" },
       {
         property: "og:description",

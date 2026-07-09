@@ -3,13 +3,13 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Coulisses 2 Ton Succès" },
+      { title: "Contact — Jetassiste" },
       {
         name: "description",
         content:
-          "Contactez Coulisses 2 Ton Succès pour discuter de vos besoins en opérations, automatisation et IA. Réponse sous 48h ouvrées.",
+          "Contactez Jetassiste pour discuter de vos besoins en opérations, automatisation et IA. Réponse sous 48h ouvrées.",
       },
-      { property: "og:title", content: "Contact — Coulisses 2 Ton Succès" },
+      { property: "og:title", content: "Contact — Jetassiste" },
       {
         property: "og:description",
         content:
@@ -60,7 +60,7 @@ function ContactPage() {
             to="/"
             className="font-display italic text-xl font-semibold tracking-tight"
           >
-            Coulisses 2 Ton Succès.
+            Jetassiste.
           </Link>
           <div className="hidden md:flex gap-8 text-xs font-medium uppercase tracking-widest text-muted">
             <Link to="/" className="hover:text-foreground transition-colors">
@@ -161,7 +161,7 @@ function ContactPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 pb-12 border-b border-background/10">
             <div className="md:col-span-2">
               <p className="text-background mb-3 font-display italic text-2xl tracking-normal">
-                Coulisses 2 Ton Succès.
+                Jetassiste.
               </p>
               <p className="leading-relaxed max-w-sm">
                 Consultante en opérations IA et automatisation pour
@@ -202,7 +202,7 @@ function ContactPage() {
             </div>
           </div>
           <p className="mt-8 text-[10px] uppercase tracking-widest text-center md:text-left">
-            © {new Date().getFullYear()} Coulisses 2 Ton Succès
+            © {new Date().getFullYear()} Jetassiste
           </p>
         </div>
       </footer>

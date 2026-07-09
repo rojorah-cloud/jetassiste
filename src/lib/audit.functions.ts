@@ -24,7 +24,7 @@ const auditSchema = z.object({
 export type AuditInput = z.infer<typeof auditSchema>;
 
 const RECIPIENT = "contact@coulisses2tonsucces.com";
-const FROM = "Coulisses 2 Ton Succès <contact@coulisses2tonsucces.com>";
+const FROM = "Jetassiste <contact@coulisses2tonsucces.com>";
 const GATEWAY_URL = "https://connector-gateway.lovable.dev/resend";
 
 function esc(s: string) {
@@ -62,7 +62,7 @@ export const submitAudit = createServerFn({ method: "POST" })
 <div style="max-width:640px;margin:0 auto;background:#fff;border-radius:16px;overflow:hidden;border:1px solid #eee">
   <div style="padding:24px 28px;border-bottom:1px solid #eee">
     <h1 style="margin:0;font-size:20px">Nouvelle demande d'audit</h1>
-    <p style="margin:6px 0 0;color:#666;font-size:13px">Coulisses 2 Ton Succès</p>
+    <p style="margin:6px 0 0;color:#666;font-size:13px">Jetassiste</p>
   </div>
   <table style="width:100%;border-collapse:collapse;font-size:14px">
     ${row("Nom complet", data.fullName)}

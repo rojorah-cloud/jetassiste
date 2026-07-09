@@ -6,13 +6,13 @@ import { submitAudit, type AuditInput } from "@/lib/audit.functions";
 export const Route = createFileRoute("/audit")({
   head: () => ({
     meta: [
-      { title: "Audit gratuit — Coulisses 2 Ton Succès" },
+      { title: "Audit gratuit — Jetassiste" },
       {
         name: "description",
         content:
           "Répondez à quelques questions et recevez une analyse personnalisée des tâches que vous pourriez simplifier ou automatiser dans votre activité.",
       },
-      { property: "og:title", content: "Audit gratuit — Coulisses 2 Ton Succès" },
+      { property: "og:title", content: "Audit gratuit — Jetassiste" },
       { property: "og:url", content: "/audit" },
     ],
     links: [{ rel: "canonical", href: "/audit" }],
@@ -196,7 +196,7 @@ function AuditPage() {
       <header className="border-b border-border">
         <div className="max-w-3xl mx-auto px-6 py-5 flex items-center justify-between">
           <Link to="/" className="font-display italic text-xl font-semibold tracking-tight">
-            Coulisses 2 Ton Succès.
+            Jetassiste.
           </Link>
           <span className="font-mono text-[10px] uppercase tracking-widest text-muted">
             Étape {step} / {STEPS}
