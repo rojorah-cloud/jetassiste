@@ -342,32 +342,53 @@ function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-foreground text-background/60 px-6 py-12 text-xs">
-        <div className="max-w-2xl mx-auto flex flex-col md:flex-row justify-between gap-8 md:items-end">
-          <div>
-            <p className="text-background mb-3 font-display italic text-2xl tracking-normal">
-              Coulisses 2 Ton Succès.
-            </p>
-            <p className="leading-relaxed max-w-sm">
-              Consultante en opérations IA et automatisation pour entrepreneurs, coachs et consultants.
-            </p>
-          </div>
-          <div className="flex flex-col gap-3 md:items-end">
-            <div className="flex gap-6 uppercase tracking-widest text-[10px]">
-              <Link to="/audit" className="hover:text-background transition-colors">
-                Audit
-              </Link>
-              <a
-                href="mailto:contact@coulisses2tonsucces.com"
-                className="hover:text-background transition-colors"
-              >
-                Contact
-              </a>
+      <footer className="bg-foreground text-background/60 px-6 py-16 text-xs">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 pb-12 border-b border-background/10">
+            <div className="md:col-span-2">
+              <p className="text-background mb-3 font-display italic text-2xl tracking-normal">
+                Coulisses 2 Ton Succès.
+              </p>
+              <p className="leading-relaxed max-w-sm">
+                Consultante en opérations IA et automatisation pour entrepreneurs, coachs et consultants.
+              </p>
             </div>
-            <p className="text-[10px] uppercase tracking-widest">
-              © {new Date().getFullYear()} Coulisses 2 Ton Succès
-            </p>
+            <div>
+              <p className="text-background mb-4 uppercase tracking-widest text-[10px] font-semibold">
+                Liens utiles
+              </p>
+              <ul className="space-y-3">
+                <li>
+                  <Link to="/" className="hover:text-background transition-colors">
+                    Accueil
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/contact" className="hover:text-background transition-colors">
+                    Contact
+                  </Link>
+                </li>
+                <li>
+                  <a
+                    href="https://blog.jetassiste.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-background transition-colors"
+                  >
+                    Blog
+                  </a>
+                </li>
+                <li>
+                  <Link to="/audit" className="hover:text-background transition-colors">
+                    Audit gratuit
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
+          <p className="mt-8 text-[10px] uppercase tracking-widest text-center md:text-left">
+            © {new Date().getFullYear()} Coulisses 2 Ton Succès
+          </p>
         </div>
       </footer>
     </div>
