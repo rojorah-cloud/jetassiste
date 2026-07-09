@@ -116,6 +116,14 @@ function LandingPage() {
           <div className="hidden md:flex gap-8 text-xs font-medium uppercase tracking-widest text-muted">
             <a href="#solution" className="hover:text-foreground transition-colors">Services</a>
             <a href="#process" className="hover:text-foreground transition-colors">Processus</a>
+            <a
+              href="https://blog.jetassiste.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-foreground transition-colors"
+            >
+              Blog
+            </a>
             <a href="#faq" className="hover:text-foreground transition-colors">FAQ</a>
           </div>
           <Link
