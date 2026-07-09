@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { LatestPosts } from "@/components/LatestPosts";
 
 export const Route = createFileRoute("/")({
   head: () => ({
