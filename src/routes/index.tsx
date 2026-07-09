@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { LatestPosts } from "@/components/LatestPosts";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -282,6 +283,9 @@ function LandingPage() {
           </div>
         </div>
       </section>
+
+      {/* Latest Posts */}
+      <LatestPosts />
 
       {/* Final CTA */}
       <section id="audit" className="py-28 px-6 text-center bg-background">
