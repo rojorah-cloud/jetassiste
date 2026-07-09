@@ -284,6 +284,9 @@ function LandingPage() {
         </div>
       </section>
 
+      {/* Latest Posts */}
+      <LatestPosts />
+
       {/* Final CTA */}
       <section id="audit" className="py-28 px-6 text-center bg-background">
         <div className="max-w-2xl mx-auto">
