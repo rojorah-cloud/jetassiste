@@ -60,6 +60,8 @@ const TOOLS = [
   "Make",
   "Google Workspace",
   "Shopify",
+  "WooCommerce",
+  "HubSpot",
   "Autre",
 ];
 
