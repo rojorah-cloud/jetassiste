@@ -13,11 +13,18 @@ export const Route = createFileRoute("/audit")({
           "Répondez à quelques questions et recevez une analyse personnalisée des tâches que vous pourriez simplifier ou automatiser dans votre activité.",
       },
       { property: "og:title", content: "Audit gratuit — Jetassiste" },
+      { property: "og:type", content: "website" },
       {
         property: "og:description",
         content: "Transformez votre activité en système. Audit personnalisé, sans engagement.",
       },
       { property: "og:url", content: "/audit" },
+      { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "Audit gratuit — Jetassiste" },
+      {
+        name: "twitter:description",
+        content: "Transformez votre activité en système. Audit personnalisé, sans engagement.",
+      },
     ],
     links: [{ rel: "canonical", href: "/audit" }],
   }),

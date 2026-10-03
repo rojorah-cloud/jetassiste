@@ -11,11 +11,19 @@ export const Route = createFileRoute("/")({
           "Consultante en opérations et automatisation. Audit gratuit pour indépendants et petites entreprises : coachs, organismes de formation, e-commerçants, SaaS, conciergeries, cabinets.",
       },
       { property: "og:title", content: "Jetassiste — Opérations & automatisation" },
+      { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
       {
         property: "og:description",
         content:
           "Transformez votre activité en système. Audit personnalisé, sans engagement.",
+      },
+      { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "Jetassiste — Opérations & automatisation" },
+      {
+        name: "twitter:description",
+        content:
+          "Consultante en opérations et automatisation. Audit gratuit pour indépendants et petites entreprises.",
       },
     ],
     links: [{ rel: "canonical", href: "/" }],
