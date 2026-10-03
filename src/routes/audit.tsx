@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { submitAudit, type AuditInput } from "@/lib/audit.functions";
 
@@ -13,6 +13,10 @@ export const Route = createFileRoute("/audit")({
           "Répondez à quelques questions et recevez une analyse personnalisée des tâches que vous pourriez simplifier ou automatiser dans votre activité.",
       },
       { property: "og:title", content: "Audit gratuit — Jetassiste" },
+      {
+        property: "og:description",
+        content: "Transformez votre activité en système. Audit personnalisé, sans engagement.",
+      },
       { property: "og:url", content: "/audit" },
     ],
     links: [{ rel: "canonical", href: "/audit" }],
@@ -33,6 +37,8 @@ const TASKS = [
   "Prospection",
   "Facturation",
   "Reporting",
+  "Service client / SAV",
+  "Suivi de dossiers et documents",
   "Autre",
 ];
 
@@ -45,7 +51,20 @@ const TOOLS = [
   "Go High Level",
   "Airtable",
   "Make",
+  "Google Workspace",
+  "Shopify",
   "Autre",
+];
+
+const SECTORS: { value: AuditInput["sector"]; label: string }[] = [
+  { value: "coachs-consultants", label: "Coach ou consultant" },
+  { value: "organismes-de-formation", label: "Organisme de formation" },
+  { value: "e-commerce", label: "E-commerce" },
+  { value: "saas", label: "SaaS / logiciel" },
+  { value: "conciergeries-immobilier", label: "Conciergerie ou immobilier" },
+  { value: "cabinets-recrutement", label: "Cabinet de recrutement" },
+  { value: "experts-comptables", label: "Cabinet d'expertise comptable" },
+  { value: "autre", label: "Autre activité" },
 ];
 
 const PRIORITIES: AuditInput["priority"][] = [
@@ -69,6 +88,7 @@ type FormState = {
   email: string;
   company: string;
   website: string;
+  sector: AuditInput["sector"] | "";
   profession: string;
   clientsPerMonth: AuditInput["clientsPerMonth"] | "";
   timeConsumingTasks: string[];
@@ -82,6 +102,7 @@ const initial: FormState = {
   email: "",
   company: "",
   website: "",
+  sector: "",
   profession: "",
   clientsPerMonth: "",
   timeConsumingTasks: [],
@@ -99,6 +120,14 @@ function AuditPage() {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [done, setDone] = useState(false);
+
+  useEffect(() => {
+    const requestedSector = new URLSearchParams(window.location.search).get("secteur");
+    const matchedSector = SECTORS.find((sector) => sector.value === requestedSector);
+    if (matchedSector) {
+      setData((current) => ({ ...current, sector: matchedSector.value }));
+    }
+  }, []);
 
   const update = <K extends keyof FormState>(k: K, v: FormState[K]) =>
     setData((d) => ({ ...d, [k]: v }));
@@ -120,7 +149,8 @@ function AuditPage() {
         /.+@.+\..+/.test(data.email) &&
         data.company.trim().length > 0
       );
-    if (step === 2) return data.profession.trim().length > 0 && data.clientsPerMonth !== "";
+    if (step === 2)
+      return data.sector !== "" && data.profession.trim().length > 0 && data.clientsPerMonth !== "";
     if (step === 3) return data.timeConsumingTasks.length > 0;
     if (step === 4) return data.priority !== "" && data.context.trim().length > 0;
     return false;
@@ -138,6 +168,7 @@ function AuditPage() {
           email: data.email.trim(),
           company: data.company.trim(),
           website: data.website.trim(),
+          sector: data.sector as AuditInput["sector"],
           profession: data.profession.trim(),
           clientsPerMonth: data.clientsPerMonth as AuditInput["clientsPerMonth"],
           timeConsumingTasks: data.timeConsumingTasks,
@@ -266,17 +297,30 @@ function AuditPage() {
 
           {step === 2 && (
             <section className="space-y-8 animate-reveal">
-              <Field label="Quel est votre métier ?" required>
+              <Field label="Votre secteur d'activité" required>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {SECTORS.map((sector) => (
+                    <RadioCard
+                      key={sector.value}
+                      name="sector"
+                      label={sector.label}
+                      checked={data.sector === sector.value}
+                      onChange={() => update("sector", sector.value)}
+                    />
+                  ))}
+                </div>
+              </Field>
+              <Field label="Précisez votre activité" required>
                 <input
                   type="text"
                   required
-                  placeholder="Coach, consultant, formateur…"
+                  placeholder="Ex. : coach business, boutique de cosmétiques, formation en management…"
                   value={data.profession}
                   onChange={(e) => update("profession", e.target.value)}
                   className={inputCls}
                 />
               </Field>
-              <Field label="Combien de clients accompagnez-vous chaque mois ?" required>
+              <Field label="Combien de clients (ou de commandes) gérez-vous chaque mois ?" required>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {CLIENTS.map((c) => (
                     <RadioCard

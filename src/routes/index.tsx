@@ -8,7 +8,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Consultante en opérations IA et automatisation. Audit gratuit pour coachs, consultants, formateurs et entrepreneurs de services qui veulent simplifier leur gestion.",
+          "Consultante en opérations et automatisation. Audit gratuit pour indépendants et petites entreprises : coachs, organismes de formation, e-commerçants, SaaS, conciergeries, cabinets.",
       },
       { property: "og:title", content: "Jetassiste — Opérations & automatisation" },
       { property: "og:url", content: "/" },
@@ -36,6 +36,37 @@ const problems = [
   "Votre contenu demande énormément de temps.",
   "Vos outils ne communiquent pas entre eux.",
   "Vous avez l'impression de courir après votre activité.",
+];
+
+const audiences = [
+  {
+    title: "Coachs & consultants",
+    text: "Onboarding, suivi des clients, relances et contenu.",
+  },
+  {
+    title: "Organismes de formation",
+    text: "Convocations, émargements, questionnaires et preuves Qualiopi.",
+  },
+  {
+    title: "E-commerçants",
+    text: "Service client par e-mail, suivi des commandes, fiches produits.",
+  },
+  {
+    title: "Fondateurs de SaaS",
+    text: "Support utilisateurs, onboarding, base de connaissances.",
+  },
+  {
+    title: "Conciergeries & immobilier",
+    text: "Messages voyageurs, planning ménage, comptes rendus propriétaires.",
+  },
+  {
+    title: "Cabinets de recrutement",
+    text: "Suivi des candidats, relances, mise en forme des CV.",
+  },
+  {
+    title: "Cabinets d'expertise comptable",
+    text: "Collecte des pièces, relances clients, rappels d'échéances.",
+  },
 ];
 
 const solutions = [
@@ -114,6 +145,7 @@ function LandingPage() {
             Jetassiste.
           </span>
           <div className="hidden md:flex gap-8 text-xs font-medium uppercase tracking-widest text-muted">
+            <a href="#pour-qui" className="hover:text-foreground transition-colors">Pour qui</a>
             <a href="#solution" className="hover:text-foreground transition-colors">Services</a>
             <a href="#process" className="hover:text-foreground transition-colors">Processus</a>
             <a
@@ -148,7 +180,7 @@ function LandingPage() {
         </h1>
 
         <p className="text-muted text-lg leading-relaxed mb-10 text-pretty animate-reveal [animation-delay:150ms]">
-          J'aide les coachs, consultants et entrepreneurs à simplifier leur gestion, automatiser leurs processus et transformer leur contenu en véritables systèmes qui travaillent pour eux.
+          J'aide les indépendants et les petites entreprises à simplifier leur gestion, automatiser leurs tâches répétitives et transformer leur fonctionnement en systèmes qui travaillent pour eux.
         </p>
 
         <div className="flex flex-col items-center gap-8 animate-reveal [animation-delay:300ms]">
@@ -190,6 +222,44 @@ function LandingPage() {
           <p className="mt-12 font-display text-xl opacity-80 italic leading-snug">
             Votre temps devrait être consacré à vos clients et à votre expertise, pas à des tâches qui peuvent être automatisées.
           </p>
+        </div>
+      </section>
+
+      {/* Audiences */}
+      <section id="pour-qui" className="py-24 px-6">
+        <div className="max-w-6xl mx-auto">
+          <span className="font-mono text-[10px] uppercase tracking-widest text-accent mb-4 block">
+            Pour qui
+          </span>
+          <h2 className="font-display text-3xl md:text-4xl mb-6 leading-tight">
+            Des systèmes adaptés à votre métier.
+          </h2>
+          <p className="text-muted text-lg leading-relaxed mb-12 text-pretty max-w-2xl">
+            Chaque activité a ses propres tâches répétitives. Voici celles que j'aide le plus souvent à simplifier.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {audiences.map((audience) => (
+              <article
+                key={audience.title}
+                className="p-6 ring-1 ring-border bg-card rounded-2xl"
+              >
+                <h3 className="font-display text-xl mb-3 leading-tight">{audience.title}</h3>
+                <p className="text-muted leading-relaxed text-sm">{audience.text}</p>
+              </article>
+            ))}
+            <article className="p-6 bg-accent text-accent-foreground rounded-2xl flex flex-col">
+              <h3 className="font-display text-xl mb-3 leading-tight">
+                Votre activité n'est pas dans la liste ?
+              </h3>
+              <p className="leading-relaxed text-sm opacity-80 mb-6">
+                Si vous avez des tâches répétitives, on peut sûrement les simplifier.
+              </p>
+              <Link to="/audit" className="mt-auto text-sm font-medium underline underline-offset-4">
+                Faire l'audit gratuit →
+              </Link>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -280,7 +350,7 @@ function LandingPage() {
           </h2>
           <div className="space-y-6 text-muted text-base leading-relaxed">
             <p>
-              Contrairement à de nombreux spécialistes techniques, je connais le fonctionnement réel des entreprises de services.
+              Contrairement à de nombreux spécialistes techniques, je connais le fonctionnement réel des petites entreprises.
             </p>
             <p>
               Mon expérience d'assistante virtuelle me permet de comprendre les processus internes, les points de friction et les besoins quotidiens des entrepreneurs.
@@ -350,7 +420,7 @@ function LandingPage() {
                 Jetassiste.
               </p>
               <p className="leading-relaxed max-w-sm">
-                Consultante en opérations IA et automatisation pour entrepreneurs, coachs et consultants.
+                Consultante en opérations IA et automatisation pour les indépendants et les petites entreprises.
               </p>
             </div>
             <div>
