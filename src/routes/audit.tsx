@@ -310,6 +310,7 @@ function AuditPage() {
                     <RadioCard
                       key={sector.value}
                       name="sector"
+                      value={sector.value}
                       label={sector.label}
                       checked={data.sector === sector.value}
                       onChange={() => update("sector", sector.value)}
@@ -333,6 +334,7 @@ function AuditPage() {
                     <RadioCard
                       key={c.value}
                       name="clients"
+                      value={c.value}
                       label={c.label}
                       checked={data.clientsPerMonth === c.value}
                       onChange={() => update("clientsPerMonth", c.value)}
@@ -387,6 +389,7 @@ function AuditPage() {
                     <RadioCard
                       key={p}
                       name="priority"
+                      value={p}
                       label={p}
                       checked={data.priority === p}
                       onChange={() => update("priority", p)}
@@ -486,11 +489,13 @@ function Field({
 
 function RadioCard({
   name,
+  value,
   label,
   checked,
   onChange,
 }: {
   name: string;
+  value: string;
   label: string;
   checked: boolean;
   onChange: () => void;
@@ -506,6 +511,7 @@ function RadioCard({
       <input
         type="radio"
         name={name}
+        value={value}
         checked={checked}
         onChange={onChange}
         className="sr-only"
