@@ -10,12 +10,19 @@ export const Route = createFileRoute("/contact")({
           "Contactez Jetassiste pour discuter de vos besoins en opérations, automatisation et IA. Réponse sous 48h ouvrées.",
       },
       { property: "og:title", content: "Contact — Jetassiste" },
+      { property: "og:type", content: "website" },
       {
         property: "og:description",
         content:
           "Une question, un projet ? Écrivez-moi et je vous réponds sous 48h ouvrées.",
       },
       { property: "og:url", content: "/contact" },
+      { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "Contact — Jetassiste" },
+      {
+        name: "twitter:description",
+        content: "Une question, un projet ? Écrivez-moi et je vous réponds sous 48h ouvrées.",
+      },
     ],
     links: [{ rel: "canonical", href: "/contact" }],
   }),

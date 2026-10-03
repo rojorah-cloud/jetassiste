@@ -6,6 +6,16 @@ const auditSchema = z.object({
   email: z.string().trim().email().max(255),
   company: z.string().trim().min(1).max(200),
   website: z.string().trim().max(255).optional().or(z.literal("")),
+  sector: z.enum([
+    "coachs-consultants",
+    "organismes-de-formation",
+    "e-commerce",
+    "saas",
+    "conciergeries-immobilier",
+    "cabinets-recrutement",
+    "experts-comptables",
+    "autre",
+  ]),
   profession: z.string().trim().min(1).max(300),
   clientsPerMonth: z.enum(["<10", "10-30", "30-100", ">100"]),
   timeConsumingTasks: z.array(z.string().max(80)).min(1).max(20),
@@ -49,6 +59,17 @@ const clientsLabel: Record<AuditInput["clientsPerMonth"], string> = {
   ">100": "Plus de 100",
 };
 
+const sectorLabel: Record<AuditInput["sector"], string> = {
+  "coachs-consultants": "Coach ou consultant",
+  "organismes-de-formation": "Organisme de formation",
+  "e-commerce": "E-commerce",
+  saas: "SaaS / logiciel",
+  "conciergeries-immobilier": "Conciergerie ou immobilier",
+  "cabinets-recrutement": "Cabinet de recrutement",
+  "experts-comptables": "Cabinet d'expertise comptable",
+  autre: "Autre activité",
+};
+
 export const submitAudit = createServerFn({ method: "POST" })
   .inputValidator((data: unknown) => auditSchema.parse(data))
   .handler(async ({ data }) => {
@@ -69,6 +90,7 @@ export const submitAudit = createServerFn({ method: "POST" })
     ${row("Email", data.email)}
     ${row("Entreprise", data.company)}
     ${row("Site internet", data.website || "—")}
+    ${row("Secteur", sectorLabel[data.sector])}
     ${row("Métier", data.profession)}
     ${row("Clients / mois", clientsLabel[data.clientsPerMonth])}
     ${row("Tâches chronophages", data.timeConsumingTasks.join(", "))}
