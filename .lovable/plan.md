@@ -1,63 +1,21 @@
-## Vision
+# Plan — Élargir Jetassiste à plusieurs secteurs
 
-Landing page conversion-orientée en français pour une consultante en opérations IA & automatisation, basée sur la direction **Quiet luxury editorial** choisie : typographie serif Cormorant Garamond pour les titres, Inter pour le corps, JetBrains Mono pour les labels techniques. Ajustements demandés : **palette pastel sobre et unisexe** (bleu-vert sauge profond + crème chaud + touche pastel neutre, pas trop féminin) et **boutons aux bords arrondis** (rounded-full).
+## Accueil
+- Conserver strictement la direction visuelle actuelle et remplacer uniquement les textes demandés dans le hero, la section « Pourquoi travailler avec moi » et le pied de page.
+- Ajouter « Pour qui » en premier dans la navigation, puis insérer la nouvelle section `pour-qui` entre le constat et la solution.
+- Présenter les sept secteurs dans une grille responsive non cliquable, avec une huitième carte accentuée menant vers l’audit.
+- Mettre à jour les descriptions SEO demandées sur l’accueil et à la racine, sans modifier la section blog.
 
-## Design tokens (src/styles.css)
+## Audit
+- Ajouter les huit secteurs au formulaire, avec préselection sûre depuis `?secteur=...` lorsqu’une valeur reconnue est fournie.
+- Exiger le secteur à l’étape 2, ajuster les deux libellés et le placeholder, puis compléter les listes de tâches et d’outils.
+- Valider `sector` côté serveur et ajouter son libellé lisible dans l’e-mail juste avant le métier, sans toucher au destinataire, à l’expéditeur, à Calendly ou au reste de l’envoi.
+- Ajouter la description sociale demandée à la page d’audit.
 
-```text
-background : crème très clair  hsl(35 25% 97%)
-foreground : ardoise profonde  hsl(215 28% 14%)
-muted      : gris-bleuté       hsl(215 14% 46%)
-accent     : sauge profond     hsl(170 22% 30%)   ← unisexe, sobre
-accent-soft: sauge pastel      hsl(170 25% 88%)   ← surfaces douces
-sand       : beige pastel      hsl(35 22% 92%)    ← sections alternées
-border     : foreground/8
-radius     : boutons → full ; cartes → 2xl (16px)
-```
+## Vérification
+- Vérifier la compilation et les erreurs d’exécution.
+- Tester dans le navigateur la grille responsive, l’ancre « Pour qui », la préselection par URL, la validation de l’étape 2 et le parcours complet du formulaire jusqu’à l’envoi et l’écran Calendly.
 
-Polices chargées via `<link>` dans `src/routes/__root.tsx` (pas d'@import dans le CSS).
-
-## Structure des fichiers
-
-```text
-src/routes/index.tsx          → page assemblée (sections importées)
-src/routes/__root.tsx         → <link> fonts + meta SEO de base
-src/styles.css                → tokens @theme + keyframe revealUp
-src/components/landing/
-  ├─ SiteNav.tsx              → nav sticky avec logo serif + CTA discret
-  ├─ Hero.tsx                 → badge mono + H1 serif + sous-titre + CTA arrondi + 4 réassurances
-  ├─ Problem.tsx              → section sombre, liste 01-05 + conclusion italique
-  ├─ Solution.tsx             → titre + texte + grille 2 colonnes des 10 exemples (puces sauge)
-  ├─ Process.tsx              → 4 étapes numérotées sur fond sand
-  ├─ UseCases.tsx             → 4 cartes (Production / Admin / Client / Data) — rounded-2xl
-  ├─ WhyMe.tsx                → bloc texte éditorial, accent italique
-  ├─ FinalCTA.tsx             → CTA centré, bouton accent arrondi
-  ├─ FAQ.tsx                  → 5 questions <details> avec réponses rédigées
-  └─ SiteFooter.tsx           → logo + positionnement + ©
-```
-
-## Contenu
-
-- Tout le copy français du brief est utilisé **mot pour mot** dans les sections Hero, Problème, Solution, Process, Cas d'usage, Pourquoi, CTA final, FAQ, Footer.
-- Les 5 questions FAQ reçoivent des réponses courtes rédigées (le brief ne les fournit pas).
-- Nom de marque placeholder : "Studio Opéra." (modifiable en un endroit).
-
-## Décisions de design
-
-- **Boutons** : `rounded-full`, padding généreux (px-8 py-4), fond `accent` pour le CTA final, fond `foreground` pour le CTA hero (contraste hiérarchique), états hover discrets (opacity).
-- **Cartes** : `rounded-2xl`, ring 1px border, hover ring accent/30, intérieur blanc cassé sur fond background.
-- **Section problème** : reste sur fond `foreground` (sombre) pour la respiration éditoriale — contraste cinématographique avec le reste pastel.
-- **Section process** : fond `sand` pastel (au lieu de stone-100 générique).
-- **Pas d'images générées** : la direction est purement typographique, aucun `data-lov-image-placeholder` dans le prototype choisi.
-- **Animations** : keyframe `revealUp` discrète sur le hero uniquement (comme dans le prototype).
-- **Responsive** : mobile-first, layout déjà cadré max-w-2xl centré ; grille 2 colonnes sur md+ pour Solution et Use Cases.
-
-## SEO
-
-`__root.tsx` head() : `<html lang="fr">`, title "Studio Opéra — Opérations & automatisation pour coachs et consultants", meta description orientée bénéfice (<160 car), viewport responsive, og:title/og:description cohérents.
-
-## Hors scope (peut être ajouté plus tard)
-
-- Formulaire d'audit fonctionnel (les boutons pointent pour l'instant vers un `mailto:` ou ancre `#audit`).
-- Backend / Lovable Cloud.
-- Page de remerciement post-soumission.
+## Détails techniques
+- Les valeurs de secteur resteront strictement limitées aux huit identifiants fournis, dans la validation URL, l’état du formulaire et le schéma serveur.
+- Aucun changement ne sera apporté aux couleurs, polices, composants visuels existants, au lien Calendly, à Resend ou à la récupération WordPress.
