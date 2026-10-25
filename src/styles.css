@@ -103,7 +103,7 @@
 .marker-stroke {
   position: absolute;
   left: -0.18em; right: -0.22em;
-  top: 24%; height: 80%;
+  top: 12%; height: 94%;
   width: calc(100% + 0.4em);
   overflow: visible;
   pointer-events: none;
