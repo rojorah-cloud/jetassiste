@@ -58,7 +58,7 @@ export function LatestPosts() {
     <section className="py-24 px-6 border-t border-border">
       <div className="max-w-6xl mx-auto">
         <div className="max-w-2xl mb-14">
-          <span className="font-mono text-[10px] uppercase tracking-widest text-accent mb-4 block">
+          <span className="font-script text-2xl text-accent mb-2 block">
             Blog
           </span>
           <h2 className="font-display text-3xl md:text-4xl leading-tight">
@@ -71,7 +71,7 @@ export function LatestPosts() {
             {Array.from({ length: 4 }).map((_, i) => (
               <div
                 key={i}
-                className="rounded-2xl ring-1 ring-border overflow-hidden bg-card animate-pulse"
+                className="rounded-2xl pop-shadow overflow-hidden bg-card animate-pulse"
               >
                 <div className="aspect-[4/3] bg-muted/20" />
                 <div className="p-5 space-y-3">
@@ -85,7 +85,7 @@ export function LatestPosts() {
         )}
 
         {isError && (
-          <div className="rounded-2xl ring-1 ring-border bg-card p-8 text-center">
+          <div className="rounded-2xl pop-shadow bg-card p-8 text-center">
             <p className="text-sm text-muted mb-4">
               Impossible de charger les articles pour le moment.
             </p>
@@ -109,7 +109,7 @@ export function LatestPosts() {
                 return (
                   <article
                     key={post.id}
-                    className="group flex flex-col rounded-2xl ring-1 ring-border bg-card overflow-hidden hover:ring-accent/30 transition-all"
+                    className="group flex flex-col rounded-2xl pop-shadow bg-card overflow-hidden"
                   >
                     <a
                       href={post.link}
@@ -159,7 +159,7 @@ export function LatestPosts() {
                 href={BLOG_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block px-8 py-4 ring-1 ring-foreground/15 rounded-full text-sm font-medium hover:bg-foreground hover:text-background transition-all"
+                className="inline-block px-8 py-4 bg-card pop-shadow pop-press rounded-full text-sm font-semibold"
               >
                 Voir tous les articles
               </a>

@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { LatestPosts } from "@/components/LatestPosts";
+import { StrawberryMascot } from "@/components/StrawberryMascot";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -145,7 +146,7 @@ const faqs = [
 
 function LandingPage() {
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans">
+    <div className="theme-pop min-h-screen bg-background text-foreground font-sans">
       {/* Nav */}
       <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
@@ -168,7 +169,7 @@ function LandingPage() {
           </div>
           <Link
             to="/audit"
-            className="text-[11px] font-semibold uppercase tracking-widest px-4 py-2 ring-1 ring-foreground/10 rounded-full hover:bg-foreground hover:text-background transition-all"
+            className="text-[11px] font-semibold uppercase tracking-widest px-4 py-2 rounded-full bg-card pop-shadow pop-press"
           >
             Audit gratuit
           </Link>
@@ -176,9 +177,10 @@ function LandingPage() {
       </nav>
 
       {/* Hero */}
-      <section className="px-6 pt-16 pb-24 max-w-2xl mx-auto text-center">
-        <div className="inline-block px-3 py-1 mb-8 rounded-full ring-1 ring-accent/20 bg-accent-soft/40 animate-reveal">
-          <span className="text-[10px] font-mono uppercase tracking-tight text-accent">
+      <section className="px-6 pt-16 pb-24 max-w-6xl mx-auto grid md:grid-cols-[1fr_auto] gap-10 items-center text-center md:text-left">
+        <div className="mx-auto md:mx-0 max-w-2xl order-2 md:order-1">
+        <div className="inline-block px-4 py-0.5 mb-8 rounded-full bg-coral pop-shadow animate-reveal">
+          <span className="font-script text-xl text-primary-foreground">
             Opérations & Automatisation
           </span>
         </div>
@@ -191,10 +193,10 @@ function LandingPage() {
           J'aide les indépendants et les petites entreprises à simplifier leur gestion, automatiser leurs tâches répétitives et transformer leur fonctionnement en systèmes qui travaillent pour eux.
         </p>
 
-        <div className="flex flex-col items-center gap-8 animate-reveal [animation-delay:300ms]">
+        <div className="flex flex-col items-center md:items-start gap-8 animate-reveal [animation-delay:300ms]">
           <Link
             to="/audit"
-            className="w-full sm:w-auto px-8 py-4 bg-foreground text-background font-medium rounded-full hover:opacity-90 transition-opacity active:scale-[0.98] text-center"
+            className="w-full sm:w-auto px-8 py-4 bg-coral text-primary-foreground font-semibold rounded-full pop-shadow pop-press text-center"
           >
             Obtenir mon audit gratuit
           </Link>
@@ -206,6 +208,10 @@ function LandingPage() {
               </li>
             ))}
           </ul>
+        </div>
+        </div>
+        <div className="order-1 md:order-2 flex justify-center">
+          <StrawberryMascot className="w-40 md:w-72 animate-floaty" />
         </div>
       </section>
 
@@ -236,7 +242,7 @@ function LandingPage() {
       {/* Audiences */}
       <section id="pour-qui" className="py-24 px-6">
         <div className="max-w-6xl mx-auto">
-          <span className="font-mono text-[10px] uppercase tracking-widest text-accent mb-4 block">
+          <span className="font-script text-2xl text-accent mb-2 block">
             Pour qui
           </span>
           <h2 className="font-display text-3xl md:text-4xl mb-6 leading-tight">
@@ -250,13 +256,13 @@ function LandingPage() {
             {audiences.map((audience) => (
               <article
                 key={audience.title}
-                className="p-6 ring-1 ring-border bg-card rounded-2xl"
+                className="p-6 pop-shadow bg-card rounded-2xl"
               >
                 <h3 className="font-display text-xl mb-3 leading-tight">{audience.title}</h3>
                 <p className="text-muted leading-relaxed text-sm">{audience.text}</p>
               </article>
             ))}
-            <article className="p-6 bg-accent text-accent-foreground rounded-2xl flex flex-col">
+            <article className="p-6 bg-accent text-accent-foreground rounded-2xl pop-shadow flex flex-col">
               <h3 className="font-display text-xl mb-3 leading-tight">
                 Votre activité n'est pas dans la liste ?
               </h3>
@@ -298,7 +304,7 @@ function LandingPage() {
       {/* Process */}
       <section id="process" className="bg-sand py-24 px-6 border-y border-border">
         <div className="max-w-2xl mx-auto">
-          <span className="font-mono text-[10px] uppercase tracking-widest text-accent mb-4 block">
+          <span className="font-script text-2xl text-accent mb-2 block">
             Comment ça fonctionne
           </span>
           <h2 className="font-display text-3xl md:text-4xl mb-16 leading-tight">
@@ -307,7 +313,7 @@ function LandingPage() {
           <div className="space-y-10">
             {steps.map((s, i) => (
               <div key={s.title} className="flex gap-6 items-start">
-                <span className="size-10 rounded-full ring-1 ring-foreground/20 bg-background grid place-items-center text-xs font-mono shrink-0">
+                <span className="size-10 rounded-full pop-shadow bg-card font-semibold grid place-items-center text-xs font-mono shrink-0">
                   {i + 1}
                 </span>
                 <div className="pt-1">
@@ -323,7 +329,7 @@ function LandingPage() {
       {/* Use Cases */}
       <section className="py-24 px-6">
         <div className="max-w-2xl mx-auto">
-          <span className="font-mono text-[10px] uppercase tracking-widest text-accent mb-4 block">
+          <span className="font-script text-2xl text-accent mb-2 block">
             Cas d'usage
           </span>
           <h2 className="font-display text-3xl md:text-4xl mb-12 leading-tight">
@@ -334,7 +340,7 @@ function LandingPage() {
             {useCases.map((c) => (
               <article
                 key={c.title}
-                className="p-8 ring-1 ring-border bg-card rounded-2xl hover:ring-accent/30 transition-all"
+                className="p-8 pop-shadow bg-card rounded-2xl"
               >
                 <span className="font-mono text-[10px] text-muted block mb-4 uppercase tracking-widest">
                   {c.tag}
@@ -350,7 +356,7 @@ function LandingPage() {
       {/* Why Me */}
       <section className="bg-sand py-24 px-6 border-y border-border">
         <div className="max-w-2xl mx-auto">
-          <span className="font-mono text-[10px] uppercase tracking-widest text-accent mb-4 block">
+          <span className="font-script text-2xl text-accent mb-2 block">
             Pourquoi travailler avec moi
           </span>
           <h2 className="font-display text-3xl md:text-4xl mb-10 leading-tight text-balance">
@@ -363,7 +369,7 @@ function LandingPage() {
             <p>
               Mon expérience d'assistante virtuelle me permet de comprendre les processus internes, les points de friction et les besoins quotidiens des entrepreneurs.
             </p>
-            <p className="font-display italic text-xl text-foreground">
+            <p className="font-script text-3xl leading-snug text-foreground">
               Je ne me contente pas de créer des automatisations. Je construis des systèmes utiles, adaptés à votre réalité et capables d'évoluer avec votre activité.
             </p>
           </div>
@@ -376,6 +382,7 @@ function LandingPage() {
       {/* Final CTA */}
       <section id="audit" className="py-28 px-6 text-center bg-background">
         <div className="max-w-2xl mx-auto">
+          <StrawberryMascot className="size-20 mx-auto mb-6 animate-floaty" />
           <h2 className="font-display text-4xl md:text-5xl mb-6 leading-[1.1] text-balance">
             Découvrez ce qui peut être automatisé dans votre activité.
           </h2>
@@ -384,7 +391,7 @@ function LandingPage() {
           </p>
           <Link
             to="/audit"
-            className="inline-block px-8 py-4 bg-accent text-accent-foreground font-medium rounded-full shadow-xl shadow-accent/10 hover:opacity-95 transition-opacity"
+            className="inline-block px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-full pop-shadow pop-press"
           >
             Recevoir mon analyse personnalisée
           </Link>
@@ -395,7 +402,7 @@ function LandingPage() {
       {/* FAQ */}
       <section id="faq" className="pb-24 px-6">
         <div className="max-w-2xl mx-auto border-t border-border pt-16">
-          <span className="font-mono text-[10px] uppercase tracking-widest text-accent mb-4 block">
+          <span className="font-script text-2xl text-accent mb-2 block">
             FAQ
           </span>
           <h2 className="font-display text-3xl md:text-4xl mb-10 leading-tight">
@@ -403,7 +410,7 @@ function LandingPage() {
           </h2>
           <div className="space-y-3">
             {faqs.map((f) => (
-              <details key={f.q} className="group rounded-xl border border-border bg-card">
+              <details key={f.q} className="group rounded-xl pop-shadow bg-card">
                 <summary className="list-none flex justify-between items-center p-5 cursor-pointer gap-4">
                   <span className="text-sm font-medium">{f.q}</span>
                   <span className="text-xl text-muted group-open:rotate-45 transition-transform shrink-0">
