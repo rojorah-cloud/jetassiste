@@ -70,6 +70,55 @@
 }
 .animate-reveal { animation: revealUp 0.8s var(--ease-out-expo) both; }
 
+/* ---- Pop / sticker theme (homepage preview, to be promoted to :root once validated) ---- */
+.theme-pop {
+  --navy: #161b4d;
+  --coral: #ef5350;
+  --ink: #0b0d24;
+  --background: #fbfaf7;
+  --foreground: var(--navy);
+  --card: #ffffff;
+  --card-foreground: var(--navy);
+  --primary: var(--navy);
+  --primary-foreground: #ffffff;
+  --accent: var(--navy);
+  --accent-foreground: #ffffff;
+  --accent-soft: #e8e9f3;
+  --muted: color-mix(in oklab, var(--navy) 68%, white);
+  --muted-foreground: color-mix(in oklab, var(--navy) 68%, white);
+  --sand: #eeeff6;
+  --border: color-mix(in oklab, var(--navy) 14%, transparent);
+  --ring: var(--navy);
+  font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+}
+.theme-pop .font-display,
+.theme-pop .font-sans { font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif; letter-spacing: -0.01em; }
+.theme-pop .font-display { font-weight: 700; font-style: normal; }
+.theme-pop ::selection { background-color: color-mix(in oklab, var(--navy) 15%, transparent); color: var(--navy); }
+
+@theme inline {
+  --color-coral: var(--coral);
+  --color-ink: var(--ink);
+  --font-script: "Caveat", ui-serif, cursive;
+}
+
+@utility pop-shadow {
+  border: 2px solid var(--ink);
+  box-shadow: 4px 4px 0 0 var(--ink);
+}
+@utility pop-press {
+  transition: transform 150ms ease, box-shadow 150ms ease;
+  &:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 0 var(--ink); }
+  &:active { transform: translate(4px, 4px); box-shadow: 0 0 0 0 var(--ink); }
+}
+
+@keyframes floaty {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+}
+.animate-floaty { animation: floaty 5s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .animate-floaty { animation: none; } }
+
 @layer base {
   * {
     border-color: var(--color-border);
