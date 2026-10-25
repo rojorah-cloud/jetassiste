@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { LatestPosts } from "@/components/LatestPosts";
 import { StrawberryMascot } from "@/components/StrawberryMascot";
+import { Highlight } from "@/components/Highlight";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -186,11 +187,11 @@ function LandingPage() {
         </div>
 
         <h1 className="font-display text-4xl md:text-5xl leading-[1.08] text-balance mb-6 animate-reveal">
-          Libérez jusqu'à plusieurs heures par semaine en automatisant les tâches répétitives de votre activité.
+          Libérez jusqu'à <Highlight animate>plusieurs heures</Highlight> par semaine en automatisant les tâches répétitives de votre activité.
         </h1>
 
         <p className="text-muted text-lg leading-relaxed mb-10 text-pretty animate-reveal [animation-delay:150ms]">
-          J'aide les indépendants et les petites entreprises à simplifier leur gestion, automatiser leurs tâches répétitives et transformer leur fonctionnement en systèmes qui travaillent pour eux.
+          J'aide les indépendants et les petites entreprises à <Highlight>simplifier leur gestion</Highlight>, automatiser leurs tâches répétitives et transformer leur fonctionnement en systèmes qui travaillent pour eux.
         </p>
 
         <div className="flex flex-col items-center md:items-start gap-8 animate-reveal [animation-delay:300ms]">
@@ -204,7 +205,7 @@ function LandingPage() {
           <ul className="grid grid-cols-2 gap-x-8 gap-y-2 text-left">
             {reassurances.map((r) => (
               <li key={r} className="flex items-center gap-2 text-[11px] font-medium text-muted">
-                <span className="text-accent">✓</span> {r}
+                <span className="text-gold font-bold [text-shadow:0_0_1px_var(--ink)]">✓</span> {r}
               </li>
             ))}
           </ul>
@@ -225,7 +226,7 @@ function LandingPage() {
           <ul className="space-y-6">
             {problems.map((p, i) => (
               <li key={p} className="flex gap-4 items-start border-b border-background/10 pb-6">
-                <span className="font-mono text-[10px] pt-1 opacity-50">
+                <span className="font-mono text-[10px] pt-1 text-gold">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <p className="text-lg leading-snug">{p}</p>
@@ -281,7 +282,7 @@ function LandingPage() {
       <section id="solution" className="py-24 px-6">
         <div className="max-w-2xl mx-auto">
           <h2 className="font-display text-3xl md:text-4xl mb-6 leading-tight">
-            Transformez votre activité en système.
+            Transformez votre activité en <Highlight animate>système</Highlight>.
           </h2>
           <p className="text-muted text-lg leading-relaxed mb-12 text-pretty">
             J'analyse votre fonctionnement actuel puis je mets en place des systèmes intelligents capables d'automatiser une grande partie des tâches répétitives de votre entreprise.
@@ -293,7 +294,7 @@ function LandingPage() {
                 key={s}
                 className="flex items-center gap-3 py-4 border-b border-border text-sm"
               >
-                <span className="size-1.5 rounded-full bg-accent shrink-0" />
+                <span className="size-2 rounded-full bg-gold ring-1 ring-ink shrink-0" />
                 {s}
               </li>
             ))}
@@ -313,7 +314,7 @@ function LandingPage() {
           <div className="space-y-10">
             {steps.map((s, i) => (
               <div key={s.title} className="flex gap-6 items-start">
-                <span className="size-10 rounded-full pop-shadow bg-card font-semibold grid place-items-center text-xs font-mono shrink-0">
+                <span className="size-10 rounded-full pop-shadow bg-gold font-semibold grid place-items-center text-xs font-mono shrink-0">
                   {i + 1}
                 </span>
                 <div className="pt-1">
@@ -401,7 +402,8 @@ function LandingPage() {
 
       {/* FAQ */}
       <section id="faq" className="pb-24 px-6">
-        <div className="max-w-2xl mx-auto border-t border-border pt-16">
+        <div className="relative max-w-2xl mx-auto border-t border-border pt-16">
+          <StrawberryMascot className="absolute -top-7 right-2 w-14 origin-bottom animate-peek" />
           <span className="font-script text-2xl text-accent mb-2 block">
             FAQ
           </span>
@@ -431,8 +433,9 @@ function LandingPage() {
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 pb-12 border-b border-background/10">
             <div className="md:col-span-2">
-              <p className="text-background mb-3 font-display italic text-2xl tracking-normal">
+              <p className="text-background mb-3 font-display italic text-2xl tracking-normal inline-flex items-center gap-2">
                 Jetassiste.
+                <StrawberryMascot className="w-7 animate-floaty" />
               </p>
               <p className="leading-relaxed max-w-sm">
                 Consultante en opérations IA et automatisation pour les indépendants et les petites entreprises.
