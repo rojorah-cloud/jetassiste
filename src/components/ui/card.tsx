@@ -2,11 +2,19 @@ import * as React from "react";
 
 import { cn } from "@/lib/utils";
 
-const Card = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => (
+const Card = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement> & { variant?: "default" | "pop" }
+>(
+  ({ className, variant = "default", ...props }, ref) => (
     <div
       ref={ref}
-      className={cn("rounded-xl border bg-card text-card-foreground shadow", className)}
+      className={cn(
+        variant === "pop"
+          ? "rounded-2xl bg-card text-card-foreground pop-shadow"
+          : "rounded-xl border bg-card text-card-foreground shadow",
+        className,
+      )}
       {...props}
     />
   ),
