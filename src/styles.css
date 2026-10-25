@@ -74,6 +74,8 @@
 .theme-pop {
   --navy: #161b4d;
   --coral: #ef5350;
+  --gold: #ffc94d;
+  --mint: #cfefc9;
   --ink: #0b0d24;
   --background: #fbfaf7;
   --foreground: var(--navy);
@@ -93,11 +95,25 @@
 }
 .theme-pop .font-display,
 .theme-pop .font-sans { font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif; letter-spacing: -0.01em; }
-.theme-pop .font-display { font-weight: 700; font-style: normal; }
+.theme-pop .font-display { font-family: "Kalam", "Caveat", cursive; font-weight: 700; font-style: normal; letter-spacing: 0; }
+
+.marker {
+  background-image: linear-gradient(transparent 55%, var(--mint) 55%, var(--mint) 92%, transparent 92%);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  padding: 0 0.12em;
+  margin: 0 -0.12em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.marker-anim { background-size: 0% 100%; transition: background-size 1.1s cubic-bezier(0.65, 0, 0.35, 1) 0.2s; }
+.marker-anim.is-on { background-size: 100% 100%; }
+@media (prefers-reduced-motion: reduce) { .marker-anim { transition: none; background-size: 100% 100%; } }
 .theme-pop ::selection { background-color: color-mix(in oklab, var(--navy) 15%, transparent); color: var(--navy); }
 
 @theme inline {
   --color-coral: var(--coral);
+  --color-gold: var(--gold);
   --color-ink: var(--ink);
   --font-script: "Caveat", ui-serif, cursive;
 }
@@ -117,7 +133,13 @@
   50% { transform: translateY(-10px) rotate(2deg); }
 }
 .animate-floaty { animation: floaty 5s ease-in-out infinite; }
-@media (prefers-reduced-motion: reduce) { .animate-floaty { animation: none; } }
+@keyframes peek {
+  0%, 70%, 100% { transform: translateY(0) rotate(12deg); }
+  80% { transform: translateY(-8px) rotate(4deg); }
+  90% { transform: translateY(0) rotate(12deg); }
+}
+.animate-peek { animation: peek 4s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .animate-floaty, .animate-peek { animation: none; } }
 
 @layer base {
   * {
