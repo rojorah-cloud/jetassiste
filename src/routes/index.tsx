@@ -220,7 +220,7 @@ function LandingPage() {
       <section className="bg-foreground text-background py-24 px-6">
         <div className="max-w-2xl mx-auto">
           <h2 className="font-display text-3xl md:text-4xl mb-12 text-balance italic leading-tight">
-            Votre entreprise grandit, mais votre <Highlight animate onDark color="lavender" variant={1}>charge mentale</Highlight> aussi.
+            Votre entreprise grandit, mais votre <Highlight animate onDark color="sky" variant={1}>charge mentale</Highlight> aussi.
           </h2>
 
           <ul className="space-y-6">
@@ -247,7 +247,7 @@ function LandingPage() {
             Pour qui
           </span>
           <h2 className="font-display text-3xl md:text-4xl mb-6 leading-tight">
-            Des systèmes adaptés à <Highlight animate color="sky">votre métier</Highlight>.
+            Des systèmes adaptés à <Highlight animate color="mint">votre métier</Highlight>.
           </h2>
           <p className="text-muted text-lg leading-relaxed mb-12 text-pretty max-w-2xl">
             Chaque activité a ses propres tâches répétitives. Voici celles que j'aide le plus souvent à simplifier.
@@ -282,7 +282,7 @@ function LandingPage() {
       <section id="solution" className="py-24 px-6">
         <div className="max-w-2xl mx-auto">
           <h2 className="font-display text-3xl md:text-4xl mb-6 leading-tight">
-            Transformez votre activité en <Highlight animate color="sky" variant={2}>système</Highlight>.
+            Transformez votre activité en <Highlight animate color="lavender" variant={2}>système</Highlight>.
           </h2>
           <p className="text-muted text-lg leading-relaxed mb-12 text-pretty">
             J'analyse votre fonctionnement actuel puis je mets en place des systèmes intelligents capables d'automatiser une grande partie des tâches répétitives de votre entreprise.
@@ -334,7 +334,7 @@ function LandingPage() {
             Cas d'usage
           </span>
           <h2 className="font-display text-3xl md:text-4xl mb-12 leading-tight">
-            Ce que vos systèmes peuvent <Highlight animate color="mint" variant={2}>prendre en charge</Highlight>.
+            Ce que vos systèmes peuvent <Highlight animate color="sky" variant={2}>prendre en charge</Highlight>.
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -385,7 +385,7 @@ function LandingPage() {
         <div className="max-w-2xl mx-auto">
           <StrawberryMascot className="size-20 mx-auto mb-6 animate-floaty" />
           <h2 className="font-display text-4xl md:text-5xl mb-6 leading-[1.1] text-balance">
-            Découvrez ce qui peut être <Highlight animate color="lavender">automatisé</Highlight> dans votre activité.
+            Découvrez ce qui peut être <Highlight animate color="mint">automatisé</Highlight> dans votre activité.
           </h2>
           <p className="text-muted text-lg mb-10 text-pretty">
             Recevez une analyse personnalisée et identifiez les tâches qui vous font perdre du temps chaque semaine.
@@ -408,7 +408,7 @@ function LandingPage() {
             FAQ
           </span>
           <h2 className="font-display text-3xl md:text-4xl mb-10 leading-tight">
-            Questions <Highlight animate color="sky" variant={1}>fréquentes</Highlight>
+            Questions <Highlight animate color="lavender" variant={1}>fréquentes</Highlight>
           </h2>
           <div className="space-y-3">
             {faqs.map((f) => (
