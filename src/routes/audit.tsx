@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState, type FormEvent } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { submitAudit, type AuditInput } from "@/lib/audit.functions";
+import { StrawberryMascot } from "@/components/StrawberryMascot";
 
 export const Route = createFileRoute("/audit")({
   head: () => ({
@@ -197,9 +198,10 @@ function AuditPage() {
 
   if (done) {
     return (
-      <div className="min-h-screen bg-background text-foreground font-sans px-6 py-20">
+      <div className="theme-pop min-h-screen bg-background text-foreground font-sans px-6 py-20">
         <div className="max-w-xl mx-auto text-center animate-reveal">
-          <span className="inline-block px-3 py-1 mb-8 rounded-full ring-1 ring-accent/20 bg-accent-soft/40 font-mono text-[10px] uppercase tracking-tight text-accent">
+          <StrawberryMascot className="w-24 mx-auto mb-8 animate-floaty" />
+          <span className="inline-block px-4 py-0.5 mb-8 rounded-full bg-coral pop-shadow font-script text-xl text-primary-foreground">
             Demande reçue
           </span>
           <h1 className="font-display text-4xl md:text-5xl leading-[1.1] mb-6 text-balance">
@@ -217,7 +219,7 @@ function AuditPage() {
             href={CALENDLY_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-8 py-4 bg-accent text-accent-foreground font-medium rounded-full shadow-xl shadow-accent/10 hover:opacity-95 transition-opacity"
+            className="inline-block px-8 py-4 bg-coral text-primary-foreground font-semibold rounded-full pop-shadow pop-press"
           >
             Réserver mon rendez-vous
           </a>
@@ -232,7 +234,7 @@ function AuditPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans">
+    <div className="theme-pop min-h-screen bg-background text-foreground font-sans">
       <header className="border-b border-border">
         <div className="max-w-3xl mx-auto px-6 py-5 flex items-center justify-between">
           <Link to="/" className="font-display italic text-xl font-semibold tracking-tight">
