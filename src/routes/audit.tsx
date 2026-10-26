@@ -427,14 +427,14 @@ function AuditPage() {
               <button
                 type="button"
                 onClick={() => setStep((s) => s - 1)}
-                className="px-6 py-3 rounded-full ring-1 ring-foreground/15 text-sm font-medium hover:bg-foreground/5 transition-colors"
+                className="px-6 py-3 rounded-full bg-card text-sm font-medium pop-shadow pop-press"
               >
                 ← Précédent
               </button>
             ) : (
               <Link
                 to="/"
-                className="px-6 py-3 rounded-full ring-1 ring-foreground/15 text-sm font-medium hover:bg-foreground/5 transition-colors text-center"
+                className="px-6 py-3 rounded-full bg-card text-sm font-medium pop-shadow pop-press text-center"
               >
                 ← Retour
               </Link>
@@ -445,7 +445,7 @@ function AuditPage() {
                 type="button"
                 disabled={!canNext}
                 onClick={() => setStep((s) => s + 1)}
-                className="px-8 py-3 rounded-full bg-foreground text-background text-sm font-medium hover:opacity-90 active:scale-[0.98] transition disabled:opacity-30 disabled:cursor-not-allowed"
+                className="px-8 py-3 rounded-full bg-foreground text-background text-sm font-semibold pop-shadow pop-press disabled:opacity-30 disabled:cursor-not-allowed"
               >
                 Continuer →
               </button>
@@ -453,7 +453,7 @@ function AuditPage() {
               <button
                 type="submit"
                 disabled={!canNext || submitting}
-                className="px-8 py-3 rounded-full bg-accent text-accent-foreground text-sm font-medium hover:opacity-95 active:scale-[0.98] transition disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-accent/10"
+                className="px-8 py-3 rounded-full bg-coral text-primary-foreground text-sm font-semibold pop-shadow pop-press disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {submitting ? "Envoi en cours…" : "Recevoir mon analyse personnalisée"}
               </button>
@@ -466,7 +466,7 @@ function AuditPage() {
 }
 
 const inputCls =
-  "w-full px-4 py-3 rounded-xl bg-background ring-1 ring-border focus:ring-2 focus:ring-accent focus:outline-none text-sm transition-all";
+  "w-full px-4 py-3 rounded-xl bg-card border-2 border-border focus:border-ink focus:outline-none text-sm transition-all";
 
 function Field({
   label,
