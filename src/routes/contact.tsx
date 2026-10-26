@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { StrawberryMascot } from "@/components/StrawberryMascot";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -59,7 +60,7 @@ const infos = [
 
 function ContactPage() {
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans flex flex-col">
+    <div className="theme-pop min-h-screen bg-background text-foreground font-sans flex flex-col">
       {/* Nav */}
       <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
@@ -87,7 +88,7 @@ function ContactPage() {
           </div>
           <Link
             to="/audit"
-            className="text-[11px] font-semibold uppercase tracking-widest px-4 py-2 ring-1 ring-foreground/10 rounded-full hover:bg-foreground hover:text-background transition-all"
+            className="text-[11px] font-semibold uppercase tracking-widest px-4 py-2 rounded-full bg-card pop-shadow pop-press"
           >
             Audit gratuit
           </Link>
@@ -96,8 +97,9 @@ function ContactPage() {
 
       {/* Hero */}
       <section className="px-6 pt-20 pb-16 max-w-2xl mx-auto text-center">
-        <div className="inline-block px-3 py-1 mb-8 rounded-full ring-1 ring-accent/20 bg-accent-soft/40">
-          <span className="text-[10px] font-mono uppercase tracking-tight text-accent">
+        <StrawberryMascot className="w-24 mx-auto mb-8 animate-floaty" />
+        <div className="inline-block px-4 py-0.5 mb-8 rounded-full bg-coral pop-shadow">
+          <span className="font-script text-xl text-primary-foreground">
             Contact
           </span>
         </div>
@@ -116,7 +118,7 @@ function ContactPage() {
           {infos.map((info) => (
             <article
               key={info.title}
-              className="p-8 ring-1 ring-border bg-card rounded-2xl flex flex-col hover:ring-accent/30 transition-all"
+              className="p-8 pop-shadow bg-card rounded-2xl flex flex-col"
             >
               <span className="font-mono text-[10px] text-muted block mb-4 uppercase tracking-widest">
                 {info.tag}
@@ -130,7 +132,7 @@ function ContactPage() {
               {info.internal ? (
                 <Link
                   to={info.href}
-                  className="mt-auto inline-block px-6 py-3 bg-foreground text-background text-xs font-semibold uppercase tracking-widest rounded-full hover:opacity-90 transition-opacity text-center"
+                  className="mt-auto inline-block px-6 py-3 bg-foreground text-background text-xs font-semibold uppercase tracking-widest rounded-full pop-shadow pop-press text-center"
                 >
                   {info.action}
                 </Link>
@@ -139,7 +141,7 @@ function ContactPage() {
                   href={info.href}
                   target={info.external ? "_blank" : undefined}
                   rel={info.external ? "noopener noreferrer" : undefined}
-                  className="mt-auto inline-block px-6 py-3 bg-foreground text-background text-xs font-semibold uppercase tracking-widest rounded-full hover:opacity-90 transition-opacity text-center"
+                  className="mt-auto inline-block px-6 py-3 bg-foreground text-background text-xs font-semibold uppercase tracking-widest rounded-full pop-shadow pop-press text-center"
                 >
                   {info.action}
                 </a>
@@ -167,8 +169,9 @@ function ContactPage() {
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 pb-12 border-b border-background/10">
             <div className="md:col-span-2">
-              <p className="text-background mb-3 font-display italic text-2xl tracking-normal">
+              <p className="text-background mb-3 font-display italic text-2xl tracking-normal inline-flex items-center gap-2">
                 Jetassiste.
+                <StrawberryMascot className="w-7 animate-floaty" />
               </p>
               <p className="leading-relaxed max-w-sm">
                 Consultante en opérations IA et automatisation pour

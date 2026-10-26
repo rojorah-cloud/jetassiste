@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState, type FormEvent } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { submitAudit, type AuditInput } from "@/lib/audit.functions";
+import { StrawberryMascot } from "@/components/StrawberryMascot";
 
 export const Route = createFileRoute("/audit")({
   head: () => ({
@@ -197,9 +198,10 @@ function AuditPage() {
 
   if (done) {
     return (
-      <div className="min-h-screen bg-background text-foreground font-sans px-6 py-20">
+      <div className="theme-pop min-h-screen bg-background text-foreground font-sans px-6 py-20">
         <div className="max-w-xl mx-auto text-center animate-reveal">
-          <span className="inline-block px-3 py-1 mb-8 rounded-full ring-1 ring-accent/20 bg-accent-soft/40 font-mono text-[10px] uppercase tracking-tight text-accent">
+          <StrawberryMascot className="w-24 mx-auto mb-8 animate-floaty" />
+          <span className="inline-block px-4 py-0.5 mb-8 rounded-full bg-coral pop-shadow font-script text-xl text-primary-foreground">
             Demande reçue
           </span>
           <h1 className="font-display text-4xl md:text-5xl leading-[1.1] mb-6 text-balance">
@@ -217,7 +219,7 @@ function AuditPage() {
             href={CALENDLY_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-8 py-4 bg-accent text-accent-foreground font-medium rounded-full shadow-xl shadow-accent/10 hover:opacity-95 transition-opacity"
+            className="inline-block px-8 py-4 bg-coral text-primary-foreground font-semibold rounded-full pop-shadow pop-press"
           >
             Réserver mon rendez-vous
           </a>
@@ -232,7 +234,7 @@ function AuditPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans">
+    <div className="theme-pop min-h-screen bg-background text-foreground font-sans">
       <header className="border-b border-border">
         <div className="max-w-3xl mx-auto px-6 py-5 flex items-center justify-between">
           <Link to="/" className="font-display italic text-xl font-semibold tracking-tight">
@@ -425,14 +427,14 @@ function AuditPage() {
               <button
                 type="button"
                 onClick={() => setStep((s) => s - 1)}
-                className="px-6 py-3 rounded-full ring-1 ring-foreground/15 text-sm font-medium hover:bg-foreground/5 transition-colors"
+                className="px-6 py-3 rounded-full bg-card text-sm font-medium pop-shadow pop-press"
               >
                 ← Précédent
               </button>
             ) : (
               <Link
                 to="/"
-                className="px-6 py-3 rounded-full ring-1 ring-foreground/15 text-sm font-medium hover:bg-foreground/5 transition-colors text-center"
+                className="px-6 py-3 rounded-full bg-card text-sm font-medium pop-shadow pop-press text-center"
               >
                 ← Retour
               </Link>
@@ -443,7 +445,7 @@ function AuditPage() {
                 type="button"
                 disabled={!canNext}
                 onClick={() => setStep((s) => s + 1)}
-                className="px-8 py-3 rounded-full bg-foreground text-background text-sm font-medium hover:opacity-90 active:scale-[0.98] transition disabled:opacity-30 disabled:cursor-not-allowed"
+                className="px-8 py-3 rounded-full bg-foreground text-background text-sm font-semibold pop-shadow pop-press disabled:opacity-30 disabled:cursor-not-allowed"
               >
                 Continuer →
               </button>
@@ -451,7 +453,7 @@ function AuditPage() {
               <button
                 type="submit"
                 disabled={!canNext || submitting}
-                className="px-8 py-3 rounded-full bg-accent text-accent-foreground text-sm font-medium hover:opacity-95 active:scale-[0.98] transition disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-accent/10"
+                className="px-8 py-3 rounded-full bg-coral text-primary-foreground text-sm font-semibold pop-shadow pop-press disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {submitting ? "Envoi en cours…" : "Recevoir mon analyse personnalisée"}
               </button>
@@ -464,7 +466,7 @@ function AuditPage() {
 }
 
 const inputCls =
-  "w-full px-4 py-3 rounded-xl bg-background ring-1 ring-border focus:ring-2 focus:ring-accent focus:outline-none text-sm transition-all";
+  "w-full px-4 py-3 rounded-xl bg-card border-2 border-border focus:border-ink focus:outline-none text-sm transition-all";
 
 function Field({
   label,
@@ -504,10 +506,8 @@ function RadioCard({
 }) {
   return (
     <label
-      className={`flex items-center gap-3 px-4 py-3 rounded-xl ring-1 cursor-pointer transition-all ${
-        checked
-          ? "ring-accent bg-accent-soft/40"
-          : "ring-border hover:ring-foreground/30 bg-background"
+      className={`flex items-center gap-3 px-4 py-3 rounded-xl cursor-pointer transition-all pop-shadow ${
+        checked ? "bg-accent-soft" : "bg-card"
       }`}
     >
       <input
@@ -519,8 +519,8 @@ function RadioCard({
         className="sr-only"
       />
       <span
-        className={`size-4 rounded-full ring-1 grid place-items-center shrink-0 ${
-          checked ? "ring-accent" : "ring-foreground/30"
+        className={`size-4 rounded-full border-2 grid place-items-center shrink-0 ${
+          checked ? "border-ink" : "border-ink/40"
         }`}
       >
         {checked && <span className="size-2 rounded-full bg-accent" />}
@@ -541,10 +541,8 @@ function CheckboxCard({
 }) {
   return (
     <label
-      className={`flex items-center gap-3 px-4 py-3 rounded-xl ring-1 cursor-pointer transition-all ${
-        checked
-          ? "ring-accent bg-accent-soft/40"
-          : "ring-border hover:ring-foreground/30 bg-background"
+      className={`flex items-center gap-3 px-4 py-3 rounded-xl cursor-pointer transition-all pop-shadow ${
+        checked ? "bg-accent-soft" : "bg-card"
       }`}
     >
       <input
@@ -554,8 +552,8 @@ function CheckboxCard({
         className="sr-only"
       />
       <span
-        className={`size-4 rounded-md ring-1 grid place-items-center shrink-0 ${
-          checked ? "ring-accent bg-accent text-accent-foreground" : "ring-foreground/30"
+        className={`size-4 rounded-md border-2 grid place-items-center shrink-0 ${
+          checked ? "border-ink bg-accent text-accent-foreground" : "border-ink/40"
         }`}
       >
         {checked && (
