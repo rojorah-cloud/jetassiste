@@ -506,10 +506,8 @@ function RadioCard({
 }) {
   return (
     <label
-      className={`flex items-center gap-3 px-4 py-3 rounded-xl ring-1 cursor-pointer transition-all ${
-        checked
-          ? "ring-accent bg-accent-soft/40"
-          : "ring-border hover:ring-foreground/30 bg-background"
+      className={`flex items-center gap-3 px-4 py-3 rounded-xl cursor-pointer transition-all pop-shadow ${
+        checked ? "bg-accent-soft" : "bg-card"
       }`}
     >
       <input
@@ -521,8 +519,8 @@ function RadioCard({
         className="sr-only"
       />
       <span
-        className={`size-4 rounded-full ring-1 grid place-items-center shrink-0 ${
-          checked ? "ring-accent" : "ring-foreground/30"
+        className={`size-4 rounded-full border-2 grid place-items-center shrink-0 ${
+          checked ? "border-ink" : "border-ink/40"
         }`}
       >
         {checked && <span className="size-2 rounded-full bg-accent" />}
@@ -543,10 +541,8 @@ function CheckboxCard({
 }) {
   return (
     <label
-      className={`flex items-center gap-3 px-4 py-3 rounded-xl ring-1 cursor-pointer transition-all ${
-        checked
-          ? "ring-accent bg-accent-soft/40"
-          : "ring-border hover:ring-foreground/30 bg-background"
+      className={`flex items-center gap-3 px-4 py-3 rounded-xl cursor-pointer transition-all pop-shadow ${
+        checked ? "bg-accent-soft" : "bg-card"
       }`}
     >
       <input
@@ -556,8 +552,8 @@ function CheckboxCard({
         className="sr-only"
       />
       <span
-        className={`size-4 rounded-md ring-1 grid place-items-center shrink-0 ${
-          checked ? "ring-accent bg-accent text-accent-foreground" : "ring-foreground/30"
+        className={`size-4 rounded-md border-2 grid place-items-center shrink-0 ${
+          checked ? "border-ink bg-accent text-accent-foreground" : "border-ink/40"
         }`}
       >
         {checked && (
