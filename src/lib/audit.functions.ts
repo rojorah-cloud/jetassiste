@@ -1,37 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
-import { z } from "zod";
-
-const auditSchema = z.object({
-  fullName: z.string().trim().min(2).max(120),
-  email: z.string().trim().email().max(255),
-  company: z.string().trim().min(1).max(200),
-  website: z.string().trim().max(255).optional().or(z.literal("")),
-  sector: z.enum([
-    "coachs-consultants",
-    "organismes-de-formation",
-    "e-commerce",
-    "saas",
-    "conciergeries-immobilier",
-    "cabinets-recrutement",
-    "experts-comptables",
-    "autre",
-  ]),
-  profession: z.string().trim().min(1).max(300),
-  clientsPerMonth: z.enum(["<10", "10-30", "30-100", ">100"]),
-  timeConsumingTasks: z.array(z.string().max(80)).min(1).max(20),
-  tools: z.array(z.string().max(80)).max(20),
-  priority: z.enum([
-    "Gagner du temps",
-    "Réduire les tâches répétitives",
-    "Mieux suivre mes clients",
-    "Produire plus de contenu",
-    "Structurer mon activité",
-    "Automatiser certains processus",
-  ]),
-  context: z.string().trim().min(1).max(3000),
-});
-
-export type AuditInput = z.infer<typeof auditSchema>;
+import { auditSchema, type AuditInput } from "./audit.schema";
+export type { AuditInput } from "./audit.schema";
 
 const RECIPIENT = "contact@coulisses2tonsucces.com";
 const FROM = "Jetassiste <contact@coulisses2tonsucces.com>";
@@ -59,17 +28,6 @@ const clientsLabel: Record<AuditInput["clientsPerMonth"], string> = {
   ">100": "Plus de 100",
 };
 
-const sectorLabel: Record<AuditInput["sector"], string> = {
-  "coachs-consultants": "Coach ou consultant",
-  "organismes-de-formation": "Organisme de formation",
-  "e-commerce": "E-commerce",
-  saas: "SaaS / logiciel",
-  "conciergeries-immobilier": "Conciergerie ou immobilier",
-  "cabinets-recrutement": "Cabinet de recrutement",
-  "experts-comptables": "Cabinet d'expertise comptable",
-  autre: "Autre activité",
-};
-
 export const submitAudit = createServerFn({ method: "POST" })
   .inputValidator((data: unknown) => auditSchema.parse(data))
   .handler(async ({ data }) => {
@@ -90,7 +48,6 @@ export const submitAudit = createServerFn({ method: "POST" })
     ${row("Email", data.email)}
     ${row("Entreprise", data.company)}
     ${row("Site internet", data.website || "—")}
-    ${row("Secteur", sectorLabel[data.sector])}
     ${row("Métier", data.profession)}
     ${row("Clients / mois", clientsLabel[data.clientsPerMonth])}
     ${row("Tâches chronophages", data.timeConsumingTasks.join(", "))}

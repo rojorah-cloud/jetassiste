@@ -81,7 +81,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Consultante en opérations et automatisation. Audit gratuit pour indépendants et petites entreprises : coachs, organismes de formation, e-commerçants, SaaS, conciergeries, cabinets.",
+          "Consultante en opérations et automatisation. J'aide coachs, consultants, formateurs et entrepreneurs à libérer plusieurs heures par semaine grâce à des systèmes intelligents.",
       },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Jetassiste" },
@@ -94,8 +94,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary" },
       { name: "twitter:title", content: "Jet Assiste" },
       { name: "twitter:description", content: "Transformez votre activité en système. Audit personnalisé, sans engagement." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/5093888b-3353-4d7b-97ba-0e345c105831/id-preview-ca0d1491--1a812ddc-7a45-42bc-b55c-c0c8ac99e243.lovable.app-1781687300907.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/5093888b-3353-4d7b-97ba-0e345c105831/id-preview-ca0d1491--1a812ddc-7a45-42bc-b55c-c0c8ac99e243.lovable.app-1781687300907.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
