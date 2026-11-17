@@ -32,8 +32,7 @@ export const Route = createFileRoute("/audit")({
   component: AuditPage,
 });
 
-// ⚠️ REMPLACER PAR VOTRE LIEN CALENDLY
-const CALENDLY_URL = "https://calendly.com/jorah/audit-business";
+const BOOKING_URL = "https://cal.com/aina261/30min";
 
 const TASKS = [
   "Gestion administrative",
@@ -53,7 +52,7 @@ const TOOLS = [
   "Notion",
   "ClickUp",
   "Stripe",
-  "Calendly",
+  "Agenda en ligne",
   "Go High Level",
   "Airtable",
   "Make",
@@ -188,7 +187,7 @@ function AuditPage() {
             prioritaires, je vous invite à réserver un rendez-vous.
           </p>
           <a
-            href={CALENDLY_URL}
+            href={BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block px-8 py-4 bg-coral text-primary-foreground font-semibold rounded-full pop-shadow pop-press"

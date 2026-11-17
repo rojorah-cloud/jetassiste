@@ -38,14 +38,14 @@ function MentionsLegalesPage() {
       <h2>Directrice de la publication</h2>
       <p>Aina Razafinimanana.</p>
       <h2>Hébergement</h2>
-      <p>Site créé et hébergé avec Lovable. LWS, société par actions simplifiée au capital de 500 000 €, immatriculée sous le numéro 851 993 683 RCS Épinal, siège social : 2 rue Jules Ferry, 88190 Golbey, France. Site : lws.fr</p>
+      <p>Site créé et hébergé avec Lovable. Hébergeur : Lovable Labs AB, Regeringsgatan 25, 111 53 Stockholm, Suède. Site : lovable.dev</p>
       <h2>Propriété intellectuelle</h2>
       <p>Les textes, visuels et éléments du site appartiennent à Jetassiste, toute reproduction sans autorisation est interdite.</p>
       <h2>Données personnelles</h2>
       <p>Le formulaire de la page d'accueil n'enregistre aucune donnée sur le site ; les réponses ne sont transmises que si la personne choisit de les envoyer elle-même par WhatsApp.</p>
-      <p>Les données reçues (par WhatsApp, e-mail ou Calendly) servent uniquement à préparer l'appel et à répondre à la demande, ne sont ni vendues ni cédées, et sont conservées 12 mois.</p>
+      <p>Les données reçues (par WhatsApp, e-mail ou l'agenda en ligne) servent uniquement à préparer l'appel et à répondre à la demande, ne sont ni vendues ni cédées, et sont conservées 12 mois.</p>
       <p>Droits d'accès, de rectification, d'effacement et d'opposition : écrire à <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. Possibilité de réclamation auprès de la <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer">CNIL (cnil.fr)</a>.</p>
-      <p>La prise de rendez-vous utilise Calendly, qui reçoit les informations renseignées lors de la réservation et applique sa propre <a href="https://calendly.com/legal/privacy-notice" target="_blank" rel="noopener noreferrer">politique de confidentialité</a>. Si tu envoies tes réponses par WhatsApp, elles sont traitées par WhatsApp selon sa propre politique. Les messages envoyés par e-mail sont traités par les services de messagerie utilisés.</p>
+      <p>La prise de rendez-vous utilise un agenda en ligne (Cal.com), qui reçoit les informations renseignées lors de la réservation et applique sa propre <a href="https://cal.com/privacy" target="_blank" rel="noopener noreferrer">politique de confidentialité</a>. Si tu envoies tes réponses par WhatsApp, elles sont traitées par WhatsApp selon sa propre politique. Les messages envoyés par e-mail sont traités par les services de messagerie utilisés.</p>
       <p>Le formulaire de la page Audit transmet les réponses à Jetassiste par e-mail via Resend pour traiter la demande d'audit. Il ne s'agit pas du formulaire de la page d'accueil.</p>
       <h2>Cookies et mesure d'audience</h2>
       <p>Le site n'utilise pas de cookies publicitaires. La mesure d'audience Lovable est activée : elle n'utilise aucun cookie, ne stocke rien sur l'appareil du visiteur, ne conserve pas les adresses IP et n'identifie pas les visiteurs.</p>

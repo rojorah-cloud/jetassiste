@@ -6,7 +6,7 @@ import { FIRST_CALL_MINUTES } from "@/lib/first-call";
 import coachsCss from "@/styles/coachs.css?url";
 
 const WHATSAPP = WHATSAPP_NUMBER;
-const CALENDLY = "https://calendly.com/jorah/cafe-virtuel?back=1";
+const BOOKING_URL = "https://cal.com/aina261/30min";
 const title = "Jetassiste – Récupère 10 à 20 heures par semaine";
 const description = `Coach, je prends en charge ton admin, tes paiements, ton contenu et tes ateliers, et on automatise ce qui peut l'être. Appel offert de ${FIRST_CALL_MINUTES} min, 3 places par mois.`;
 export const Route = createFileRoute("/")({
@@ -225,7 +225,7 @@ function CoachsPage() {
           <div className="card lg"><span className="pill mono mint">On l'agentise</span><h3 className="fs24">Ce qui demande de lire ou d'écrire</h3><p className="douce">Un assistant IA réglé sur ta méthode et ton ton. Il prépare, tu relis.</p><ul className="dots"><li>Le compte-rendu et le plan d'action d'une séance</li><li>Les réponses à tes messages les plus fréquents</li><li>Une séance ou un live transformés en posts</li></ul></div>
         </div>
         <div className="card lg flat mt32 green"><h3 className="fs24">Souvent, une automatisation suffit.</h3><p>Une tâche qui se répète à l'identique n'a pas besoin d'IA. L'automatisation est plus simple, plus fiable et moins chère à faire tourner. L'agentisation devient utile seulement quand il faut lire, réfléchir ou écrire. On choisit ensemble ce qui convient à ton activité.</p></div>
-        <div className="stack mt40"><p className="sur">Avec tes outils</p><p>Je pars de ce que tu utilises déjà, et j'ajoute seulement ce qui manque. En 10 ans d'assistanat, j'en ai croisé beaucoup :</p><div className="chips"><span className="y">Make</span><span className="y">Claude</span><span>GoHighLevel</span><span>Systeme.io</span><span>Stripe</span><span>ClickUp</span><span>Notion</span><span>Google Workspace</span><span>Calendly</span><span>... et les tiens</span></div></div>
+        <div className="stack mt40"><p className="sur">Avec tes outils</p><p>Je pars de ce que tu utilises déjà, et j'ajoute seulement ce qui manque. En 10 ans d'assistanat, j'en ai croisé beaucoup :</p><div className="chips"><span className="y">Make</span><span className="y">Claude</span><span>GoHighLevel</span><span>Systeme.io</span><span>Stripe</span><span>ClickUp</span><span>Notion</span><span>Google Workspace</span><span>Agenda en ligne</span><span>... et les tiens</span></div></div>
       </div></section>
       <section id="exemple"><div className="wrap">
         <div className="head"><p className="sur">Concrètement</p><h2>Un nouveau client dit oui. <span className="hl">Et après ?</span></h2><p className="lead">Un exemple de ce qu'on peut mettre en place ensemble. Le tien sera construit selon ton activité.</p></div>
@@ -316,17 +316,17 @@ function CoachsPage() {
           <div className="two"><label>Ton prénom<input type="text" name="prenom" autoComplete="given-name" required /></label><label>Ton e-mail<input type="email" name="email" autoComplete="email" required /></label></div>
           <label>Ton type de coaching<span className="hint">Business, vie, sport, nutrition, carrière...</span><input type="text" name="coaching" /></label>
           <fieldset><legend>Qu'est-ce qui te prend le plus de temps ?</legend><div className="checks">{[...groups.map(group => group.category), "Autre"].map(category => <label key={category}><input type="checkbox" name="taches" value={category} checked={categories.includes(category)} onChange={event => setCategories(previous => event.target.checked ? [...previous, category] : previous.filter(value => value !== category))} />{category}</label>)}</div></fieldset>
-          <label>Tes outils actuels<span className="hint">Systeme.io, GHL, Stripe, Notion, Calendly...</span><input type="text" name="outils" /></label>
+          <label>Tes outils actuels<span className="hint">Systeme.io, GHL, Stripe, Notion, agenda en ligne...</span><input type="text" name="outils" /></label>
           <label>Si tu récupérais 10 heures par semaine, tu en ferais quoi ?<textarea name="objectif" /></label>
           <p id="err" role="alert">{error}</p>
           <Button variant="ghost" className="btn j self-start" type="submit">Choisir mon créneau</Button>
           <p className="douce small">Tes réponses restent entre nous et servent seulement à préparer l'appel.</p>
-          <p className="small">Tu préfères réserver directement ? <a href={CALENDLY} target="_blank" rel="noopener" className="fw700">Choisir mon créneau</a></p>
+          <p className="small">Tu préfères réserver directement ? <a href={BOOKING_URL} target="_blank" rel="noopener" className="fw700">Choisir mon créneau</a></p>
         </form>}
         {result && <div id="merci" className="card lg on" ref={thanksRef}>
           <h3 className="fs26">Merci <span id="mprenom">{result.firstName}</span> !</h3>
           <p>Dernière étape : choisis ton créneau.</p>
-          <a className="btn j self-start" href={CALENDLY} target="_blank" rel="noopener">Choisir mon créneau</a>
+          <a className="btn j self-start" href={BOOKING_URL} target="_blank" rel="noopener">Choisir mon créneau</a>
           <p className="douce">Pour que j'arrive préparée, envoie-moi aussi tes réponses :</p>
           <div id="resume">{result.text}</div>
           <div className="ctas"><a id="wa" className="btn" href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(result.text)}`} target="_blank" rel="noopener">Envoyer sur WhatsApp</a><Button id="copy" variant="ghost" className="btn" type="button" onClick={copy}>Copier mes réponses</Button></div>
