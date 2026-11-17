@@ -22,7 +22,7 @@ export const Route = createFileRoute("/")({
 });
 
 const groups = [
-  { title: "Tes clientes", category: "Suivi des clientes", tasks: ["L'onboarding : contrat, questionnaire, facture", "Les mails administratifs", "Le suivi et les relances entre les séances", "La fin d'accompagnement et la coupure des accès", "Les cas particuliers et les dossiers en attente"] },
+  { title: "Tes clients", category: "Suivi des clients", tasks: ["L'onboarding : contrat, questionnaire, facture", "Les mails administratifs", "Le suivi et les relances entre les séances", "La fin d'accompagnement et la coupure des accès", "Les cas particuliers et les dossiers en attente"] },
   { title: "Tes paiements", category: "Paiements et factures", tasks: ["La facturation", "Le suivi et la relance des impayés", "Le regroupement des factures pour ta compta"] },
   { title: "Ton contenu", category: "Contenu", tasks: ["La programmation de tes reels et leurs légendes", "La publication de ton podcast", "Tes posts et ta newsletter"] },
   { title: "Tes ateliers et programmes", category: "Ateliers et programmes", tasks: ["L'agenda et les rappels de tes ateliers", "Les replays : récupération, mise en ligne, transcription", "Ta bibliothèque de vidéos offertes"] },
@@ -186,7 +186,7 @@ function CoachsPage() {
         <div className="card lg">
           <p className="sur">Tu me confies</p>
           <ul className="clean">
-            <li><Check /><span>Tes clientes, de l'arrivée au départ</span></li>
+            <li><Check /><span>Tes clients, de l'arrivée au départ</span></li>
             <li><Check /><span>Tes paiements et tes factures</span></li>
             <li><Check /><span>Ton contenu et sa diffusion</span></li>
             <li><Check /><span>Tes ateliers et tes programmes</span></li>
@@ -197,19 +197,19 @@ function CoachsPage() {
         </div>
       </div></section>
       <section id="pour-toi" className="alt"><div className="wrap">
-        <div className="head"><p className="sur">C'est pour toi si...</p><h2>Ton activité grandit, et c'est une <span className="hl l">belle nouvelle</span>.</h2><p className="lead">Tu as des clientes, une offre qui marche, des projets plein la tête. Seulement, chaque nouvelle cliente apporte aussi des mails, des documents et des relances.</p></div>
+        <div className="head"><p className="sur">C'est pour toi si...</p><h2>Ton activité grandit, et c'est une <span className="hl l">belle nouvelle</span>.</h2><p className="lead">Tu as des clients, une offre qui marche, des projets plein la tête. Seulement, chaque nouveau client apporte aussi des mails, des documents et des relances.</p></div>
         <div className="grid">
           <div className="card"><h3>L'admin grignote tes soirées</h3><p className="douce">Tu coaches la journée. Le soir, il reste les mails, les factures et les comptes-rendus.</p></div>
           <div className="card"><h3>L'IA t'attire, sans savoir par où commencer</h3><p className="douce">Entre les outils, les tutos et les nouveautés, il est difficile de trouver le temps de s'y mettre.</p></div>
           <div className="card"><h3>Une assistante, c'est un grand pas</h3><p className="douce">Recruter, former, payer chaque mois. Ce n'est pas toujours le bon moment.</p></div>
         </div>
         <div className="notfor grid w gap32">
-          <div className="stack gap10"><h3>On est faites pour travailler ensemble si...</h3><ul className="dots"><li>Tu as déjà des clientes régulières et une offre qui se vend</li><li>Tu sens que l'organisation te freine plus que le manque de clientes</li><li>Tu es prête à déléguer, et à me faire confiance sur l'exécution</li></ul></div>
-          <div className="stack gap10"><h3>Ce n'est sans doute pas le bon moment si...</h3><ul className="dots"><li>Tu cherches encore tes premières clientes</li><li>Tu préfères apprendre à tout faire toi-même</li></ul></div>
+          <div className="stack gap10"><h3>On est faites pour travailler ensemble si...</h3><ul className="dots"><li>Tu as déjà des clients réguliers et une offre qui se vend</li><li>Tu sens que l'organisation te freine plus que le manque de clients</li><li>Tu es prête à déléguer, et à me faire confiance sur l'exécution</li></ul></div>
+          <div className="stack gap10"><h3>Ce n'est sans doute pas le bon moment si...</h3><ul className="dots"><li>Tu cherches encore tes premiers clients</li><li>Tu préfères apprendre à tout faire toi-même</li></ul></div>
         </div>
       </div></section>
       <section id="taches"><div className="wrap">
-        <div className="head"><p className="sur">Ce que je prends en charge</p><h2>Tout ce qui t'éloigne de tes <span className="hl">clientes</span>.</h2><p className="lead">Pas seulement l'admin. Tout ce dont tu as besoin de te défaire pour te sentir plus légère : je m'en occupe.</p><p><strong>Coche ce que tu fais encore toi-même.</strong> On partira de là pendant l'appel.</p></div>
+        <div className="head"><p className="sur">Ce que je prends en charge</p><h2>Tout ce qui t'éloigne de tes <span className="hl">clients</span>.</h2><p className="lead">Pas seulement l'admin. Tout ce dont tu as besoin de te défaire pour te sentir plus légère : je m'en occupe.</p><p><strong>Coche ce que tu fais encore toi-même.</strong> On partira de là pendant l'appel.</p></div>
         <div className="grid">
           {groups.map(group => <div className="card" key={group.category}><h3>{group.title}</h3><div className="tick">{group.tasks.map(task => <label key={task}><input type="checkbox" data-cat={group.category} checked={checked.includes(task)} onChange={event => toggleTask(task, group.category, event.target.checked)} /><span>{task}</span></label>)}</div></div>)}
           <div className="card flat green"><h3>Et le reste ?</h3><p className="douce">Chaque activité est différente. Ce qui te pèse et qui n'est pas dans cette liste, on en parle pendant l'appel.</p></div>
@@ -220,19 +220,19 @@ function CoachsPage() {
         <div className="head"><p className="sur">Comment je t'aide</p><h2>Pour chaque tâche, la <span className="hl">bonne façon</span> de faire.</h2><p className="lead">Pendant l'appel, on regarde ensemble chaque tâche et on choisit : je m'en occupe, on l'automatise, ou on l'agentise. Tu n'as rien à apprendre ni à configurer.</p></div>
         <div className="grid">
           <div className="card lg"><span className="pill mono">Je m'en occupe</span><h3 className="fs24">Ce qui demande une personne</h3><p className="douce">Le relationnel, les cas particuliers, ce qui demande du jugement. Je le fais, avec soin.</p></div>
-          <div className="card lg"><span className="pill mono yellow">On l'automatise</span><h3 className="fs24">Ce qui se fait toujours pareil</h3><p className="douce">Une règle fixe : quand ceci arrive, cela se fait. Pas d'IA, pas de réflexion, juste zéro oubli.</p><ul className="dots"><li>Une cliente réserve : confirmation, questionnaire et lien visio partent seuls</li><li>Un paiement arrive : la facture part</li><li>La veille d'une séance : rappel envoyé</li></ul></div>
+          <div className="card lg"><span className="pill mono yellow">On l'automatise</span><h3 className="fs24">Ce qui se fait toujours pareil</h3><p className="douce">Une règle fixe : quand ceci arrive, cela se fait. Pas d'IA, pas de réflexion, juste zéro oubli.</p><ul className="dots"><li>Un client réserve : confirmation, questionnaire et lien visio partent seuls</li><li>Un paiement arrive : la facture part</li><li>La veille d'une séance : rappel envoyé</li></ul></div>
           <div className="card lg"><span className="pill mono mint">On l'agentise</span><h3 className="fs24">Ce qui demande de lire ou d'écrire</h3><p className="douce">Un assistant IA réglé sur ta méthode et ton ton. Il prépare, tu relis.</p><ul className="dots"><li>Le compte-rendu et le plan d'action d'une séance</li><li>Les réponses à tes messages les plus fréquents</li><li>Une séance ou un live transformés en posts</li></ul></div>
         </div>
         <div className="card lg flat mt32 green"><h3 className="fs24">Souvent, une automatisation suffit.</h3><p>Une tâche qui se répète à l'identique n'a pas besoin d'IA. L'automatisation est plus simple, plus fiable et moins chère à faire tourner. L'agentisation devient utile seulement quand il faut lire, réfléchir ou écrire. On choisit ensemble ce qui convient à ton activité.</p></div>
         <div className="stack mt40"><p className="sur">Avec tes outils</p><p>Je pars de ce que tu utilises déjà, et j'ajoute seulement ce qui manque. En 10 ans d'assistanat, j'en ai croisé beaucoup :</p><div className="chips"><span className="y">Make</span><span className="y">Claude</span><span>GoHighLevel</span><span>Systeme.io</span><span>Stripe</span><span>ClickUp</span><span>Notion</span><span>Google Workspace</span><span>Calendly</span><span>... et les tiens</span></div></div>
       </div></section>
       <section id="exemple"><div className="wrap">
-        <div className="head"><p className="sur">Concrètement</p><h2>Une nouvelle cliente dit oui. <span className="hl">Et après ?</span></h2><p className="lead">Un exemple de ce qu'on peut mettre en place ensemble. Le tien sera construit selon ton activité.</p></div>
+        <div className="head"><p className="sur">Concrètement</p><h2>Un nouveau client dit oui. <span className="hl">Et après ?</span></h2><p className="lead">Un exemple de ce qu'on peut mettre en place ensemble. Le tien sera construit selon ton activité.</p></div>
         <div className="grid w stretch">
           <div className="card lg"><span className="pill mono">Aujourd'hui</span><h3 className="fs24">Tu fais tout à la main</h3><ul className="dots"><li>Tu envoies le contrat, puis la facture</li><li>Tu envoies le questionnaire et le lien de la visio</li><li>Tu l'ajoutes dans ton suivi</li><li>Tu penses à lui rappeler sa séance</li><li>Après la séance, tu rédiges le compte-rendu le soir</li></ul></div>
-          <div className="card lg green"><span className="pill mono mint">Avec ton système</span><h3 className="fs24">Tu accueilles ta cliente. C'est tout.</h3><ul className="dots"><li>Elle paie : contrat, facture, questionnaire et lien partent seuls</li><li>Elle entre dans ton suivi, sans que tu y penses</li><li>La veille, elle reçoit son rappel</li><li>Après la séance, le compte-rendu est prêt. Tu le relis, tu l'envoies</li><li>Et je garde un œil sur le tout</li></ul></div>
+          <div className="card lg green"><span className="pill mono mint">Avec ton système</span><h3 className="fs24">Tu accueilles ton client. C'est tout.</h3><ul className="dots"><li>Il paie : contrat, facture, questionnaire et lien partent seuls</li><li>Il entre dans ton suivi, sans que tu y penses</li><li>La veille, il reçoit son rappel</li><li>Après la séance, le compte-rendu est prêt. Tu le relis, tu l'envoies</li><li>Et je garde un œil sur le tout</li></ul></div>
         </div>
-        <div className="card lg flat mt32"><h3 className="fs24">Tu gardes la main.</h3><p>Avant d'activer quoi que ce soit, tu relis et tu valides chaque message qui partira chez tes clientes. Rien ne se fait dans ton dos, et c'est toujours ta voix qu'elles entendent.</p></div>
+        <div className="card lg flat mt32"><h3 className="fs24">Tu gardes la main.</h3><p>Avant d'activer quoi que ce soit, tu relis et tu valides chaque message qui partira chez tes clients. Rien ne se fait dans ton dos, et c'est toujours ta voix qu'ils entendent.</p></div>
       </div></section>
       <section id="mois" className="alt"><div className="wrap">
         <div className="head"><p className="sur">Comment ça marche</p><h2>Un objectif. <span className="hl">Un mois</span> pour l'atteindre.</h2><p className="lead">Pas de compteur d'heures. On choisit ensemble un objectif pendant l'appel. Ensuite, je fais le nécessaire pour l'atteindre en un mois.</p></div>
@@ -247,7 +247,7 @@ function CoachsPage() {
       </div></section>
       <section><div className="wrap"><div className="grid w center gap48">
         <div className="mono douce photo">[Ta photo]</div>
-        <div className="stack"><p className="sur">Qui je suis</p><h2>Moi, c'est <span className="hl">Aina Razafinimanana</span>.</h2><p className="lead">Ça fait 10 ans que je suis assistante virtuelle. 10 ans à gérer des agendas, des mails, des factures et des outils pour d'autres entrepreneurs.</p><p className="lead">Quand l'IA est arrivée, ça a été une vraie passion.</p><p className="lead">Aujourd'hui, je mets ces 10 ans au service des coachs. Je connais bien leurs semaines, et tout ce qui se passe en coulisses.</p></div>
+        <div className="stack"><p className="sur">Qui je suis</p><h2>Moi, c'est <span className="hl">Aina Razafinimanana</span>.</h2><p className="lead">Ça fait 10 ans que je suis assistante virtuelle. 10 ans à gérer des agendas, des mails, des factures et des outils pour d'autres entrepreneurs.</p><p className="lead">Quand l'IA est arrivée, ça a été une vraie passion.</p><p className="lead">Je vis à Madagascar et je travaille à distance avec des clients francophones.</p><p className="lead">Aujourd'hui, je mets ces 10 ans au service des coachs. Je connais bien leurs semaines, et tout ce qui se passe en coulisses.</p></div>
       </div></div></section>
       <section id="offre" className="alt"><div className="wrap">
         <div className="head"><p className="sur">L'offre</p><h2>Un mois pour tout mettre en place. <span className="hl">Zéro engagement</span> ensuite.</h2></div>
@@ -267,7 +267,7 @@ function CoachsPage() {
             <div className="card-top"><span className="mono douce">Ensuite, si tu veux</span><span className="pill mono mint">Sans engagement</span></div>
             <h3 className="fs28">Je pilote pour toi</h3>
             <p><span className="price">500 €</span> <span className="douce">/ mois</span></p>
-            <ul className="dots"><li><strong>Jusqu'à 5 h par semaine de mon temps, réservées pour toi</strong></li><li><strong>Pilotage</strong> : je fais tourner, je surveille et j'ajuste ton système</li><li><strong>Disponibilité</strong> : tu m'écris, je te réponds sous 24 h ouvrées</li><li>Je repère et je mets en place les prochaines automatisations</li><li>Je tiens tes procédures à jour</li><li>Un point ensemble chaque mois</li><li>Les heures non utilisées ne sont pas reportées</li><li>Tu arrêtes quand tu veux : tout reste chez toi</li></ul>
+            <ul className="dots"><li><strong>Jusqu'à 5 h par semaine de mon temps, réservées pour toi</strong></li><li><strong>Pilotage</strong> : je fais tourner, je surveille et j'ajuste ton système</li><li><strong>Disponibilité</strong> : tu m'écris, je te réponds en 1 jour ouvré au plus, jamais plus de 24 h</li><li>Je repère et je mets en place les prochaines automatisations</li><li>Je tiens tes procédures à jour</li><li>Un point ensemble chaque mois</li><li>Les heures non utilisées ne sont pas reportées</li><li>Tu arrêtes quand tu veux : tout reste chez toi</li></ul>
             <div className="stack extra"><p><strong>Besoin de moi sur d'autres tâches ?</strong></p><p className="douce">On en parle, et je te fais un devis selon tes besoins.</p></div>
           </div>
         </div>
@@ -290,7 +290,7 @@ function CoachsPage() {
         <div className="stack">
           <details><summary>L'appel, c'est un appel de vente ?</summary><p>C'est d'abord un appel pour toi. On regarde ta semaine, et tu repars avec tes priorités et un objectif clair. Si mon offre peut t'aider, je te la présente. Sinon, je te le dis franchement.</p></details>
           <details><summary>Je n'ai jamais délégué. J'ai peur de perdre le contrôle.</summary><p>C'est normal, et c'est pour ça qu'on avance pas à pas. Tu valides chaque message avant qu'il parte. Tu vois tout ce qui est en place dans ton manuel. Et tu peux arrêter à tout moment.</p></details>
-          <details><summary>On travaille sur quels horaires ?</summary><p>[TES HORAIRES : par exemple, du lundi au vendredi de 9 h à 17 h, heure de Paris.] Tes automatisations, elles, tournent en continu.</p></details>
+          <details><summary>On travaille sur quels horaires ?</summary><p>Je suis à Madagascar, avec 1 h ou 2 h d'avance sur la France selon la saison. On s'organise sur tes horaires, en tenant compte de ce décalage. On peut aussi travailler en asynchrone : je te réponds en 1 jour ouvré au plus, jamais plus de 24 h. Tes automatisations, elles, tournent en continu.</p></details>
           <details><summary>Je ne suis pas à l'aise avec la technique. C'est un problème ?</summary><p>Non, c'est même le principe. Je m'occupe de tout, tu utilises le résultat. Et en fin de mois, je te montre juste le nécessaire.</p></details>
           <details><summary>Combien de temps ça va me demander, à moi ?</summary><p>Très peu. L'appel, quelques validations pendant le mois quand j'ai besoin de ton avis, et la visio de prise en main à la fin.</p></details>
           <details><summary>Les abonnements aux outils sont-ils inclus ?</summary><p>Pendant la mise en place, je travaille avec mes propres outils. Une fois que tout fonctionne, on migre tout vers tes comptes, pour que ton système t'appartienne vraiment. Donc oui, à la fin, tu prends toi-même les abonnements aux outils nécessaires, comme Make ou l'IA de ton choix (Claude, ChatGPT...). Ils sont à ton nom et à ta charge. Pour te repérer : compte environ 30 € par mois pour démarrer, soit Make à partir d'environ 10 € et une IA comme Claude à environ 20 €. Le montant exact dépend de ce qu'on met en place. Les outils que tu utilises déjà ne changent pas. On choisit ensemble des formules adaptées à ton budget.</p></details>
@@ -298,7 +298,7 @@ function CoachsPage() {
           <details><summary>Et si l'objectif n'est pas atteint au bout du mois ?</summary><p>Je continue sans frais jusqu'à ce qu'il le soit. C'est pour ça qu'on le fixe ensemble dès l'appel : un objectif clair et réaliste pour ton activité.</p></details>
           <details><summary>Pourquoi seulement 3 coachs par mois ?</summary><p>Parce que chaque mise en place demande du temps pour bien comprendre ton activité. Je préfère en accompagner peu, mais bien.</p></details>
           <details><summary>Pourquoi pas un forfait en heures ?</summary><p>Parce que ce qui compte, c'est le résultat. On fixe un objectif ensemble, et je fais en sorte de l'atteindre en un mois. Le temps que ça me demande, c'est à moi de le gérer.</p></details>
-          <details><summary>Et la confidentialité de mes clientes ?</summary><ul className="dots"><li>On signe un accord de confidentialité et un contrat de sous-traitance RGPD avant de commencer.</li><li>Tu me partages tes accès via Dashlane, un gestionnaire de mots de passe sécurisé. Aucun mot de passe ne passe par mail ou par message, et tu peux retirer le partage quand tu veux.</li><li>Les outils IA sont réglés pour ne pas apprendre à partir de tes données.</li><li>Je privilégie l'hébergement en Europe quand l'outil le permet.</li><li>Je n'utilise que les données nécessaires. À la fin, je supprime mes accès.</li></ul></details>
+          <details><summary>Et la confidentialité de mes clients ?</summary><ul className="dots"><li>On signe un accord de confidentialité et un contrat de sous-traitance RGPD avant de commencer.</li><li>Tu me partages tes accès via Dashlane, un gestionnaire de mots de passe sécurisé. Aucun mot de passe ne passe par mail ou par message, et tu peux retirer le partage quand tu veux.</li><li>Les outils IA sont réglés pour ne pas apprendre à partir de tes données.</li><li>Je privilégie l'hébergement en Europe quand l'outil le permet.</li><li>Je n'utilise que les données nécessaires. À la fin, je supprime mes accès.</li></ul></details>
           <details><summary>Que se passe-t-il après le mois ?</summary><p>Tu as une visio de prise en main, tes tutos et ton manuel. Tu peux tout piloter seule. Ou tu me laisses le faire, sans engagement.</p></details>
           <details><summary>Et si mon outil est un peu particulier ?</summary><p>10 ans d'assistanat, c'est beaucoup d'outils croisés. Si je ne le connais pas déjà, je m'y mets. Ton outil ne sera pas un frein.</p></details>
         </div>

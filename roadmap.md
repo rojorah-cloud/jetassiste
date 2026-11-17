@@ -17,3 +17,7 @@
 - [x] Remplacer « Rojo Razafi » par « Aina Razafinimanana » et « Bonjour Rojo » par « Bonjour Aina ».
 - [x] Renseigner le numéro WhatsApp 261349012159 et retirer les liens Facebook / LinkedIn.
 - [x] Afficher contact@jetassiste.com en pied de page et vérifier le parcours complet.
+
+- [x] Passer les clients des coachs au masculin sur la nouvelle accueil, préremplissage compris.
+- [x] Ajouter le paragraphe Madagascar dans « Qui je suis », la réponse horaires de la FAQ et la disponibilité de l'offre.
+- [x] Vérifier la page dans le navigateur, sans toucher à /ancien-accueil, /audit ni /contact.
