@@ -13,3 +13,7 @@
 - [x] Conserver l’accueil existant à /ancien-accueil, non indexé.
 - [x] Convertir fidèlement la page coachs et ses interactions, avec des styles isolés.
 - [x] Vérifier le formulaire, les animations, le rendu mobile et les pages conservées sans envoi d’e-mail.
+
+- [x] Remplacer « Rojo Razafi » par « Aina Razafinimanana » et « Bonjour Rojo » par « Bonjour Aina ».
+- [x] Renseigner le numéro WhatsApp 261349012159 et retirer les liens Facebook / LinkedIn.
+- [x] Afficher contact@jetassiste.com en pied de page et vérifier le parcours complet.

@@ -1,10 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { Button } from "@/components/ui/button";
-import { isCoachsIdentityValid } from "@/lib/coachs-form";
+import { CONTACT_EMAIL, WHATSAPP_GREETING, WHATSAPP_NUMBER, isCoachsIdentityValid } from "@/lib/coachs-form";
 import coachsCss from "@/styles/coachs.css?url";
 
-const WHATSAPP = "[NUMERO]";
+const WHATSAPP = WHATSAPP_NUMBER;
 const CALENDLY = "https://calendly.com/jorah/cafe-virtuel?back=1";
 const title = "Jetassiste – Récupère 10 à 20 heures par semaine";
 const description = "Coach, je prends en charge ton admin, tes paiements, ton contenu et tes ateliers, et on automatise ce qui peut l'être. Appel offert de 30 min, 3 places par mois.";
@@ -151,7 +151,7 @@ function CoachsPage() {
       return;
     }
     setError("");
-    const text = "Bonjour Rojo, voici mes réponses pour l'appel :\n\n" +
+    const text = WHATSAPP_GREETING + ", voici mes réponses pour l'appel :\n\n" +
       "Prénom : " + firstName + "\n" + "E-mail : " + email + "\n" +
       "Coaching : " + (data.get("coaching") || "-") + "\n" +
       "Ce qui me prend du temps : " + (data.getAll("taches").join(", ") || "-") + "\n" +
@@ -247,7 +247,7 @@ function CoachsPage() {
       </div></section>
       <section><div className="wrap"><div className="grid w center gap48">
         <div className="mono douce photo">[Ta photo]</div>
-        <div className="stack"><p className="sur">Qui je suis</p><h2>Moi, c'est <span className="hl">Rojo Razafi</span>.</h2><p className="lead">Ça fait 10 ans que je suis assistante virtuelle. 10 ans à gérer des agendas, des mails, des factures et des outils pour d'autres entrepreneurs.</p><p className="lead">Quand l'IA est arrivée, ça a été une vraie passion.</p><p className="lead">Aujourd'hui, je mets ces 10 ans au service des coachs. Je connais bien leurs semaines, et tout ce qui se passe en coulisses.</p></div>
+        <div className="stack"><p className="sur">Qui je suis</p><h2>Moi, c'est <span className="hl">Aina Razafinimanana</span>.</h2><p className="lead">Ça fait 10 ans que je suis assistante virtuelle. 10 ans à gérer des agendas, des mails, des factures et des outils pour d'autres entrepreneurs.</p><p className="lead">Quand l'IA est arrivée, ça a été une vraie passion.</p><p className="lead">Aujourd'hui, je mets ces 10 ans au service des coachs. Je connais bien leurs semaines, et tout ce qui se passe en coulisses.</p></div>
       </div></div></section>
       <section id="offre" className="alt"><div className="wrap">
         <div className="head"><p className="sur">L'offre</p><h2>Un mois pour tout mettre en place. <span className="hl">Zéro engagement</span> ensuite.</h2></div>
@@ -331,10 +331,10 @@ function CoachsPage() {
         </div>}
       </div></section>
       <section className="final"><div className="narrow">
-        <h2>Dans un mois, ta semaine pourrait être plus légère.</h2><p className="lead">Un objectif. Un mois. Un système qui reste à toi.</p><a className="btn j" href="#diagnostic">Réserver mon appel offert</a><p className="fs14">30 min offertes · 3 places par mois · prix de lancement</p><p className="fs14">Tu préfères d'abord voir comment je travaille ? <a href="[LIEN PAGE LINKEDIN]">Suis-moi ici</a> · <a href="[LIEN WHATSAPP]">Écris-moi sur WhatsApp</a></p>
+        <h2>Dans un mois, ta semaine pourrait être plus légère.</h2><p className="lead">Un objectif. Un mois. Un système qui reste à toi.</p><a className="btn j" href="#diagnostic">Réserver mon appel offert</a><p className="fs14">30 min offertes · 3 places par mois · prix de lancement</p><p className="fs14">Une question avant de réserver ? <a href={`https://wa.me/${WHATSAPP}`} target="_blank" rel="noopener">Écris-moi sur WhatsApp</a></p>
       </div></section>
     </main>
-    <footer><div className="wrap"><span className="footer-logo">Jetassiste</span><span>[E-MAIL] · <a href="[LIEN MENTIONS LÉGALES]">Mentions légales</a></span></div></footer>
+    <footer><div className="wrap"><span className="footer-logo">Jetassiste</span><span><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> · <a href="[LIEN MENTIONS LÉGALES]">Mentions légales</a></span></div></footer>
     <div className={`mbar${mobileOff ? " off" : ""}`} aria-label="Réserver un appel"><p><strong>Appel offert</strong><br />3 places par mois</p><a className="btn main" href="#diagnostic">Réserver</a></div>
   </div>;
 }
