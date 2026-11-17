@@ -9,11 +9,17 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as MentionsLegalesRouteImport } from './routes/mentions-legales'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AuditRouteImport } from './routes/audit'
 import { Route as AncienAccueilRouteImport } from './routes/ancien-accueil'
 import { Route as IndexRouteImport } from './routes/index'
 
+const MentionsLegalesRoute = MentionsLegalesRouteImport.update({
+  id: '/mentions-legales',
+  path: '/mentions-legales',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
@@ -40,12 +46,14 @@ export interface FileRoutesByFullPath {
   '/ancien-accueil': typeof AncienAccueilRoute
   '/audit': typeof AuditRoute
   '/contact': typeof ContactRoute
+  '/mentions-legales': typeof MentionsLegalesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/ancien-accueil': typeof AncienAccueilRoute
   '/audit': typeof AuditRoute
   '/contact': typeof ContactRoute
+  '/mentions-legales': typeof MentionsLegalesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -53,13 +61,25 @@ export interface FileRoutesById {
   '/ancien-accueil': typeof AncienAccueilRoute
   '/audit': typeof AuditRoute
   '/contact': typeof ContactRoute
+  '/mentions-legales': typeof MentionsLegalesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/ancien-accueil' | '/audit' | '/contact'
+  fullPaths:
+    | '/'
+    | '/ancien-accueil'
+    | '/audit'
+    | '/contact'
+    | '/mentions-legales'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/ancien-accueil' | '/audit' | '/contact'
-  id: '__root__' | '/' | '/ancien-accueil' | '/audit' | '/contact'
+  to: '/' | '/ancien-accueil' | '/audit' | '/contact' | '/mentions-legales'
+  id:
+    | '__root__'
+    | '/'
+    | '/ancien-accueil'
+    | '/audit'
+    | '/contact'
+    | '/mentions-legales'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -67,10 +87,18 @@ export interface RootRouteChildren {
   AncienAccueilRoute: typeof AncienAccueilRoute
   AuditRoute: typeof AuditRoute
   ContactRoute: typeof ContactRoute
+  MentionsLegalesRoute: typeof MentionsLegalesRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/mentions-legales': {
+      id: '/mentions-legales'
+      path: '/mentions-legales'
+      fullPath: '/mentions-legales'
+      preLoaderRoute: typeof MentionsLegalesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -107,6 +135,7 @@ const rootRouteChildren: RootRouteChildren = {
   AncienAccueilRoute: AncienAccueilRoute,
   AuditRoute: AuditRoute,
   ContactRoute: ContactRoute,
+  MentionsLegalesRoute: MentionsLegalesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

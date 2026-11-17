@@ -21,3 +21,7 @@
 - [x] Passer les clients des coachs au masculin sur la nouvelle accueil, préremplissage compris.
 - [x] Ajouter le paragraphe Madagascar dans « Qui je suis », la réponse horaires de la FAQ et la disponibilité de l'offre.
 - [x] Vérifier la page dans le navigateur, sans toucher à /ancien-accueil, /audit ni /contact.
+
+- [x] Ajouter les mentions légales et le lien de l'accueil, avec les informations de confidentialité vérifiées.
+- [x] Ajouter les icônes d'onglet et Apple, puis vérifier l'absence d'erreur.
+- [x] Mettre à jour le premier appel à 30 à 45 minutes et vérifier les deux pages.

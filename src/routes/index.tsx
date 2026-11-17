@@ -1,13 +1,14 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { CONTACT_EMAIL, WHATSAPP_GREETING, WHATSAPP_NUMBER, isCoachsIdentityValid } from "@/lib/coachs-form";
+import { FIRST_CALL_MINUTES } from "@/lib/first-call";
 import coachsCss from "@/styles/coachs.css?url";
 
 const WHATSAPP = WHATSAPP_NUMBER;
 const CALENDLY = "https://calendly.com/jorah/cafe-virtuel?back=1";
 const title = "Jetassiste – Récupère 10 à 20 heures par semaine";
-const description = "Coach, je prends en charge ton admin, tes paiements, ton contenu et tes ateliers, et on automatise ce qui peut l'être. Appel offert de 30 min, 3 places par mois.";
+const description = `Coach, je prends en charge ton admin, tes paiements, ton contenu et tes ateliers, et on automatise ce qui peut l'être. Appel offert de ${FIRST_CALL_MINUTES} min, 3 places par mois.`;
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [{ title }, { name: "description", content: description }, { property: "og:title", content: title }, { property: "og:description", content: description }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }],
@@ -181,7 +182,7 @@ function CoachsPage() {
           <h1>Récupère <span className="hl">10 à 20 heures</span> par semaine. Je m'occupe du reste.</h1>
           <p className="lead">Ton admin, tes paiements, ton contenu, tes ateliers : je prends tout en charge. Et en un mois, on met en place ce qui peut tourner sans toi. Le temps gagné dépend de ton activité : on l'estime ensemble pendant l'appel.</p>
           <div className="ctas"><a className="btn main" href="#diagnostic">Réserver mon appel offert</a><a href="#offre" className="fw600">Voir l'offre</a></div>
-          <div className="reassure"><span>30 min offertes</span><span>Tu repars avec tes 3 priorités</span><span>Objectif atteint ou je continue</span><span>3 places par mois</span></div>
+          <div className="reassure"><span>{FIRST_CALL_MINUTES} min offertes</span><span>Tu repars avec tes 3 priorités</span><span>Objectif atteint ou je continue</span><span>3 places par mois</span></div>
         </div>
         <div className="card lg">
           <p className="sur">Tu me confies</p>
@@ -237,7 +238,7 @@ function CoachsPage() {
       <section id="mois" className="alt"><div className="wrap">
         <div className="head"><p className="sur">Comment ça marche</p><h2>Un objectif. <span className="hl">Un mois</span> pour l'atteindre.</h2><p className="lead">Pas de compteur d'heures. On choisit ensemble un objectif pendant l'appel. Ensuite, je fais le nécessaire pour l'atteindre en un mois.</p></div>
         <div className="tl">
-          <div><span className="num">0</span><h3>L'appel</h3><p className="douce">Un court questionnaire, puis 30 min en visio. On fixe ton objectif ensemble.</p></div>
+          <div><span className="num">0</span><h3>L'appel</h3><p className="douce">Un court questionnaire, puis 30 à 45 min en visio. Tu me présentes ton activité, et on fixe ton objectif ensemble.</p></div>
           <div><span className="num">1</span><h3>Semaine 1</h3><p className="douce">Je prends le temps de bien comprendre ton activité. Les premières automatisations simples tournent déjà.</p></div>
           <div><span className="num">2</span><h3>Semaines 2 à 4</h3><p className="douce">Je construis le reste, et ton assistant IA si on en a prévu un. Je teste tout.</p></div>
           <div><span className="num">3</span><h3>Fin du mois</h3><p className="douce">Une visio pour te montrer comment tout fonctionne. Tu repars avec tes tutos et ton manuel.</p></div>
@@ -288,7 +289,7 @@ function CoachsPage() {
       <section id="faq" className="alt"><div className="narrow">
         <div className="head"><p className="sur">Tes questions</p><h2>Ce qu'on me demande <span className="hl">souvent</span>.</h2></div>
         <div className="stack">
-          <details><summary>L'appel, c'est un appel de vente ?</summary><p>C'est d'abord un appel pour toi. On regarde ta semaine, et tu repars avec tes priorités et un objectif clair. Si mon offre peut t'aider, je te la présente. Sinon, je te le dis franchement.</p></details>
+          <details><summary>L'appel, c'est un appel de vente ?</summary><p>C'est d'abord un appel pour toi. Pendant 30 à 45 minutes, tu me montres comment fonctionne ton activité et on regarde ta semaine, et tu repars avec tes priorités et un objectif clair. Si mon offre peut t'aider, je te la présente. Sinon, je te le dis franchement.</p></details>
           <details><summary>Je n'ai jamais délégué. J'ai peur de perdre le contrôle.</summary><p>C'est normal, et c'est pour ça qu'on avance pas à pas. Tu valides chaque message avant qu'il parte. Tu vois tout ce qui est en place dans ton manuel. Et tu peux arrêter à tout moment.</p></details>
           <details><summary>On travaille sur quels horaires ?</summary><p>Je suis à Madagascar, avec 1 h ou 2 h d'avance sur la France selon la saison. On s'organise sur tes horaires, en tenant compte de ce décalage. On peut aussi travailler en asynchrone : je te réponds en 1 jour ouvré au plus, jamais plus de 24 h. Tes automatisations, elles, tournent en continu.</p></details>
           <details><summary>Je ne suis pas à l'aise avec la technique. C'est un problème ?</summary><p>Non, c'est même le principe. Je m'occupe de tout, tu utilises le résultat. Et en fin de mois, je te montre juste le nécessaire.</p></details>
@@ -304,10 +305,12 @@ function CoachsPage() {
         </div>
       </div></section>
       <section id="diagnostic"><div className="narrow">
-        <div className="head"><p className="sur">On commence ici</p><h2>Réserve ton <span className="hl">appel offert</span>.</h2><p className="lead">30 minutes pour toi, même si on ne travaille pas ensemble ensuite. Tu repars avec :</p>
+        <div className="head"><p className="sur">On commence ici</p><h2>Réserve ton <span className="hl">appel offert</span>.</h2><p className="lead">30 à 45 minutes en visio, pour toi, même si on ne travaille pas ensemble ensuite.</p>
+          <div className="card flat green"><p><strong>Pendant l'appel, tu me fais découvrir ton activité.</strong></p><p>Une petite démo ou un récap de comment tout fonctionne aujourd'hui : tes process, tes outils, le parcours de tes clients, ce qui te prend du temps. Tout ce que je dois savoir pour bien comprendre ton business.</p></div>
+          <p className="lead">Et tu repars avec :</p>
           <div className="gain"><div><span className="num">1</span><strong>Tes 3 tâches à confier en priorité</strong><span className="douce">Celles qui te libèrent le plus de temps, le plus vite.</span></div><div><span className="num">2</span><strong>La bonne façon pour chacune</strong><span className="douce">Je m'en occupe, on l'automatise ou on l'agentise.</span></div><div><span className="num">3</span><strong>Un objectif clair pour le mois</strong><span className="douce">Ce qu'on peut viser ensemble, concrètement.</span></div></div>
           <p className="douce">Pas de vente forcée. Si ce n'est pas pour toi, je te le dis.</p>
-          <div className="steps3"><div><b>1</b><span>Tu réponds à 5 questions, en 2 minutes</span></div><div><b>2</b><span>Tu choisis ton créneau de 30 min</span></div><div><b>3</b><span>On fixe ton objectif ensemble</span></div></div>
+          <div className="steps3"><div><b>1</b><span>Tu réponds à 5 questions, en 2 minutes</span></div><div><b>2</b><span>Tu choisis ton créneau de 30 à 45 min</span></div><div><b>3</b><span>On fixe ton objectif ensemble</span></div></div>
         </div>
         {!result && <form id="form" className="card lg" noValidate onSubmit={submit}>
           <div className="two"><label>Ton prénom<input type="text" name="prenom" autoComplete="given-name" required /></label><label>Ton e-mail<input type="email" name="email" autoComplete="email" required /></label></div>
@@ -331,10 +334,10 @@ function CoachsPage() {
         </div>}
       </div></section>
       <section className="final"><div className="narrow">
-        <h2>Dans un mois, ta semaine pourrait être plus légère.</h2><p className="lead">Un objectif. Un mois. Un système qui reste à toi.</p><a className="btn j" href="#diagnostic">Réserver mon appel offert</a><p className="fs14">30 min offertes · 3 places par mois · prix de lancement</p><p className="fs14">Une question avant de réserver ? <a href={`https://wa.me/${WHATSAPP}`} target="_blank" rel="noopener">Écris-moi sur WhatsApp</a></p>
+        <h2>Dans un mois, ta semaine pourrait être plus légère.</h2><p className="lead">Un objectif. Un mois. Un système qui reste à toi.</p><a className="btn j" href="#diagnostic">Réserver mon appel offert</a><p className="fs14">30 à 45 min offertes · 3 places par mois · prix de lancement</p><p className="fs14">Une question avant de réserver ? <a href={`https://wa.me/${WHATSAPP}`} target="_blank" rel="noopener">Écris-moi sur WhatsApp</a></p>
       </div></section>
     </main>
-    <footer><div className="wrap"><span className="footer-logo">Jetassiste</span><span><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> · <a href="[LIEN MENTIONS LÉGALES]">Mentions légales</a></span></div></footer>
+    <footer><div className="wrap"><span className="footer-logo">Jetassiste</span><span><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> · <Link to="/mentions-legales">Mentions légales</Link></span></div></footer>
     <div className={`mbar${mobileOff ? " off" : ""}`} aria-label="Réserver un appel"><p><strong>Appel offert</strong><br />3 places par mois</p><a className="btn main" href="#diagnostic">Réserver</a></div>
   </div>;
 }
