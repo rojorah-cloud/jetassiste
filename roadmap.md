@@ -9,3 +9,7 @@
 - [x] Vérifier la compilation et le parcours complet du formulaire.
 - [x] Nouvelle identité « sticker » (DM Sans + Caveat, marine, corail rare, mascotte fraise) sur l'accueil.
 - [x] Propager la nouvelle identité à /audit et /contact (après validation).
+
+- [x] Conserver l’accueil existant à /ancien-accueil, non indexé.
+- [x] Convertir fidèlement la page coachs et ses interactions, avec des styles isolés.
+- [x] Vérifier le formulaire, les animations, le rendu mobile et les pages conservées sans envoi d’e-mail.

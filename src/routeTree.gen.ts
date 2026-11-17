@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AuditRouteImport } from './routes/audit'
+import { Route as AncienAccueilRouteImport } from './routes/ancien-accueil'
 import { Route as IndexRouteImport } from './routes/index'
 
 const ContactRoute = ContactRouteImport.update({
@@ -23,6 +24,11 @@ const AuditRoute = AuditRouteImport.update({
   path: '/audit',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AncienAccueilRoute = AncienAccueilRouteImport.update({
+  id: '/ancien-accueil',
+  path: '/ancien-accueil',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -31,30 +37,34 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/ancien-accueil': typeof AncienAccueilRoute
   '/audit': typeof AuditRoute
   '/contact': typeof ContactRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/ancien-accueil': typeof AncienAccueilRoute
   '/audit': typeof AuditRoute
   '/contact': typeof ContactRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/ancien-accueil': typeof AncienAccueilRoute
   '/audit': typeof AuditRoute
   '/contact': typeof ContactRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/audit' | '/contact'
+  fullPaths: '/' | '/ancien-accueil' | '/audit' | '/contact'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/audit' | '/contact'
-  id: '__root__' | '/' | '/audit' | '/contact'
+  to: '/' | '/ancien-accueil' | '/audit' | '/contact'
+  id: '__root__' | '/' | '/ancien-accueil' | '/audit' | '/contact'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AncienAccueilRoute: typeof AncienAccueilRoute
   AuditRoute: typeof AuditRoute
   ContactRoute: typeof ContactRoute
 }
@@ -75,6 +85,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuditRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ancien-accueil': {
+      id: '/ancien-accueil'
+      path: '/ancien-accueil'
+      fullPath: '/ancien-accueil'
+      preLoaderRoute: typeof AncienAccueilRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -87,6 +104,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AncienAccueilRoute: AncienAccueilRoute,
   AuditRoute: AuditRoute,
   ContactRoute: ContactRoute,
 }
